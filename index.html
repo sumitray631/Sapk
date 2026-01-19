@@ -3,32 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SApk Downloader - Download Android APK Files Safely</title>
+    <title>Sumit Creator - Home</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
     <style>
-        :root {
-            --primary: #4a6bff;
-            --primary-dark: #3a56d4;
-            --secondary: #ff6b6b;
-            --dark: #2d3748;
-            --light: #f8f9fa;
-            --gray: #718096;
-            --light-gray: #e2e8f0;
-            --success: #10b981;
-            --warning: #f59e0b;
-            --danger: #ef4444;
-        }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #4a6fa5;
+            --secondary: #166088;
+            --accent: #ff6b6b;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --gray: #6c757d;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
         
         body {
-            background-color: #f5f7ff;
+            background-color: #f5f7fa;
             color: var(--dark);
             line-height: 1.6;
         }
@@ -40,83 +36,86 @@
             padding: 0 20px;
         }
         
-        /* Header Styles */
+        /* Header & Navigation */
         header {
             background-color: white;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            box-shadow: var(--shadow);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
         }
         
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            padding: 15px 0;
         }
         
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
         
         .logo-icon {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            background-color: var(--primary);
             color: white;
-            width: 42px;
-            height: 42px;
-            border-radius: 10px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-weight: bold;
             font-size: 1.5rem;
-            font-weight: 700;
         }
         
         .logo-text {
             font-size: 1.8rem;
             font-weight: 700;
-            color: var(--dark);
+            color: var(--primary);
         }
         
         .logo-text span {
-            color: var(--primary);
+            color: var(--accent);
         }
         
         nav ul {
             display: flex;
             list-style: none;
-            gap: 30px;
         }
         
-        nav a {
-            color: var(--dark);
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
             text-decoration: none;
-            font-weight: 500;
-            font-size: 1.05rem;
-            transition: color 0.3s;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            padding: 8px 5px;
             position: relative;
         }
         
-        nav a:hover {
+        nav ul li a:hover {
             color: var(--primary);
         }
         
-        nav a.active {
+        nav ul li a.active {
             color: var(--primary);
         }
         
-        nav a.active::after {
+        nav ul li a.active::after {
             content: '';
             position: absolute;
-            bottom: -8px;
+            bottom: 0;
             left: 0;
             width: 100%;
             height: 3px;
             background-color: var(--primary);
-            border-radius: 3px;
         }
         
         .mobile-menu-btn {
@@ -124,335 +123,325 @@
             background: none;
             border: none;
             font-size: 1.5rem;
-            color: var(--dark);
+            color: var(--primary);
             cursor: pointer;
         }
         
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(74, 107, 255, 0.05), rgba(74, 107, 255, 0.02));
-            padding: 80px 0;
+        /* Main Content */
+        main {
+            min-height: calc(100vh - 200px);
+            padding: 40px 0;
+        }
+        
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .page-header {
             text-align: center;
-            border-radius: 0 0 30px 30px;
             margin-bottom: 40px;
         }
         
-        .hero h1 {
-            font-size: 3.2rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--dark);
-            line-height: 1.2;
+        .page-header h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
         }
         
-        .hero h1 span {
-            color: var(--primary);
+        .page-header p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Home Page */
+        .hero {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 60px 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 50px;
+            box-shadow: var(--shadow);
+        }
+        
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
         }
         
         .hero p {
             font-size: 1.2rem;
-            color: var(--gray);
-            max-width: 700px;
-            margin: 0 auto 40px;
-        }
-        
-        .search-container {
-            max-width: 700px;
-            margin: 0 auto;
-            position: relative;
-        }
-        
-        .search-box {
-            width: 100%;
-            padding: 20px 25px;
-            font-size: 1.1rem;
-            border: 2px solid var(--light-gray);
-            border-radius: 15px;
-            background-color: white;
-            box-shadow: 0 8px 20px rgba(74, 107, 255, 0.08);
-            transition: all 0.3s;
-        }
-        
-        .search-box:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 8px 20px rgba(74, 107, 255, 0.15);
-        }
-        
-        .search-btn {
-            position: absolute;
-            right: 10px;
-            top: 10px;
-            background: linear-gradient(to right, var(--primary), var(--primary-dark));
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 10px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .search-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(74, 107, 255, 0.3);
-        }
-        
-        /* Categories */
-        .categories {
-            margin-bottom: 50px;
-        }
-        
-        .section-title {
-            font-size: 1.8rem;
-            font-weight: 700;
             margin-bottom: 30px;
-            color: var(--dark);
-            position: relative;
-            padding-bottom: 10px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background-color: var(--primary);
-            border-radius: 2px;
-        }
-        
-        .categories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 20px;
-        }
-        
-        .category-card {
-            background-color: white;
-            border-radius: 15px;
-            padding: 25px 20px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
-            transition: all 0.3s;
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            border: none;
             cursor: pointer;
-            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            font-size: 1rem;
         }
         
-        .category-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(74, 107, 255, 0.1);
-            border-color: var(--primary);
+        .btn:hover {
+            background-color: #ff5252;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(255, 107, 107, 0.3);
         }
         
-        .category-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 15px;
-            margin: 0 auto 15px;
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .feature-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            background-color: rgba(74, 111, 165, 0.1);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin-bottom: 20px;
+            color: var(--primary);
             font-size: 1.8rem;
-            color: white;
         }
         
-        .category-name {
-            font-weight: 600;
-            color: var(--dark);
-            font-size: 1.1rem;
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
         }
         
-        /* APK List */
-        .apk-list {
-            margin-bottom: 50px;
-        }
-        
+        /* APK Page */
         .apk-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 25px;
         }
         
         .apk-card {
             background-color: white;
-            border-radius: 15px;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
-            transition: all 0.3s;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
         }
         
         .apk-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(74, 107, 255, 0.1);
         }
         
-        .apk-header {
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            border-bottom: 1px solid var(--light-gray);
-        }
-        
-        .apk-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 12px;
+        .apk-img {
+            height: 180px;
+            background-color: #e9ecef;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
-            color: white;
-            flex-shrink: 0;
+            font-size: 3rem;
+            color: var(--primary);
         }
         
-        .apk-info h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 5px;
-            color: var(--dark);
+        .apk-content {
+            padding: 20px;
         }
         
-        .apk-info p {
+        .apk-content h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .apk-content p {
             color: var(--gray);
             font-size: 0.9rem;
-        }
-        
-        .apk-details {
-            padding: 20px;
+            margin-bottom: 20px;
         }
         
         .apk-meta {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 15px;
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-top: 15px;
         }
         
-        .apk-size, .apk-version, .apk-rating {
+        /* About Page */
+        .about-content {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 5px;
-            color: var(--gray);
+            gap: 40px;
+        }
+        
+        .about-card {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            max-width: 900px;
+            width: 100%;
+        }
+        
+        .about-card h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+        
+        .about-card p {
+            margin-bottom: 20px;
+        }
+        
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .skill-tag {
+            background-color: rgba(74, 111, 165, 0.1);
+            color: var(--primary);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
             font-size: 0.9rem;
         }
         
-        .apk-rating i {
-            color: var(--warning);
-        }
-        
-        .apk-description {
-            color: var(--gray);
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
-        
-        .download-btn {
-            display: block;
-            width: 100%;
-            padding: 14px;
-            background: linear-gradient(to right, var(--primary), var(--primary-dark));
-            color: white;
-            text-align: center;
-            border-radius: 10px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-        
-        .download-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(74, 107, 255, 0.3);
-        }
-        
-        /* Features */
-        .features {
-            margin-bottom: 50px;
-        }
-        
-        .features-grid {
+        /* Contact Page */
+        .contact-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
         }
         
-        .feature-card {
+        .contact-info {
             background-color: white;
-            border-radius: 15px;
-            padding: 30px 25px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
-            transition: all 0.3s;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
         }
         
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(74, 107, 255, 0.1);
+        .contact-info h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
         }
         
-        .feature-icon {
-            width: 70px;
-            height: 70px;
-            border-radius: 15px;
-            margin: 0 auto 20px;
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            background-color: rgba(74, 111, 165, 0.1);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            color: white;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            margin-right: 15px;
+            color: var(--primary);
+            font-size: 1.2rem;
         }
         
-        .feature-title {
-            font-size: 1.3rem;
+        .contact-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
             font-weight: 600;
-            margin-bottom: 10px;
             color: var(--dark);
         }
         
-        .feature-description {
-            color: var(--gray);
-            font-size: 0.95rem;
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
         }
         
         /* Footer */
         footer {
             background-color: var(--dark);
             color: white;
-            padding: 60px 0 30px;
-            margin-top: 50px;
-            border-radius: 30px 30px 0 0;
+            padding: 40px 0 20px;
         }
         
         .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+            padding-right: 20px;
         }
         
         .footer-column h3 {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 25px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 3px;
-            background-color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: white;
         }
         
         .footer-links {
@@ -460,82 +449,72 @@
         }
         
         .footer-links li {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
         
         .footer-links a {
             color: #b0b7c3;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: color 0.3s ease;
         }
         
         .footer-links a:hover {
             color: white;
         }
         
-        .footer-logo {
+        .social-links {
             display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 20px;
+            gap: 15px;
+            margin-top: 20px;
         }
         
-        .footer-logo-icon {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
-            display: flex;
+        .social-links a {
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
-            font-weight: 700;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
         }
         
-        .footer-logo-text {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-        
-        .footer-logo-text span {
-            color: var(--primary);
-        }
-        
-        .footer-about {
-            color: #b0b7c3;
-            line-height: 1.7;
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
         }
         
         .copyright {
             text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid #4a5568;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: #b0b7c3;
             font-size: 0.9rem;
         }
         
         /* Responsive Design */
         @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2.5rem;
+            .hero h2 {
+                font-size: 2.2rem;
             }
             
-            .apk-grid {
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            .page-header h1 {
+                font-size: 2rem;
             }
         }
         
         @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
             nav {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
                 width: 100%;
-                background-color: white;
-                padding: 20px;
-                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+                margin-top: 15px;
+                display: none;
             }
             
             nav.active {
@@ -544,65 +523,76 @@
             
             nav ul {
                 flex-direction: column;
-                gap: 15px;
+                width: 100%;
+            }
+            
+            nav ul li {
+                margin-left: 0;
+                margin-bottom: 10px;
+            }
+            
+            nav ul li a {
+                display: block;
+                padding: 10px 0;
+                border-bottom: 1px solid #eee;
+            }
+            
+            nav ul li a.active::after {
+                display: none;
             }
             
             .mobile-menu-btn {
                 display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
             }
             
             .hero {
-                padding: 60px 0;
+                padding: 40px 20px;
             }
             
-            .hero h1 {
-                font-size: 2.2rem;
+            .hero h2 {
+                font-size: 1.8rem;
             }
             
-            .search-box {
-                padding: 16px 20px;
+            .features {
+                grid-template-columns: 1fr;
             }
             
-            .search-btn {
-                position: relative;
-                right: 0;
-                top: 0;
-                width: 100%;
-                margin-top: 15px;
+            .footer-column {
+                min-width: 100%;
+                padding-right: 0;
             }
         }
         
         @media (max-width: 576px) {
-            .hero h1 {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .hero h2 {
+                font-size: 1.6rem;
+            }
+            
+            .page-header h1 {
                 font-size: 1.8rem;
             }
             
-            .section-title {
-                font-size: 1.5rem;
-            }
-            
-            .categories-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .apk-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .features-grid {
-                grid-template-columns: 1fr;
+            .about-card, .contact-info, .contact-form {
+                padding: 25px 20px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header & Navigation -->
     <header>
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <div class="logo-icon">S</div>
-                    <div class="logo-text"><span>S</span>Apk Downloader</div>
+                    <div class="logo-icon">SC</div>
+                    <div class="logo-text">Sumit <span>Creator</span></div>
                 </div>
                 
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -611,400 +601,480 @@
                 
                 <nav id="mainNav">
                     <ul>
-                        <li><a href="#home" class="active">Home</a></li>
-                        <li><a href="#categories">Categories</a></li>
-                        <li><a href="#apks">APKs</a></li>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#about">About</a></li>
+                        <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+                        <li><a href="#" class="nav-link" data-page="sapk">SApk</a></li>
+                        <li><a href="#" class="nav-link" data-page="about">About</a></li>
+                        <li><a href="#" class="nav-link" data-page="tach">Tach</a></li>
+                        <li><a href="#" class="nav-link" data-page="edition">Edition</a></li>
+                        <li><a href="#" class="nav-link" data-page="ai-edit">AI Edit</a></li>
+                        <li><a href="#" class="nav-link" data-page="contact">Contact Us</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
-    
-    <!-- Hero Section -->
-    <section class="hero" id="home">
+
+    <!-- Main Content -->
+    <main>
         <div class="container">
-            <h1>Download <span>Android APK</span> Files Safely & Fast</h1>
-            <p>SApk Downloader provides verified and safe APK files for popular Android applications. Download the latest versions directly to your device.</p>
+            <!-- Home Page -->
+            <section class="page active" id="home">
+                <div class="hero">
+                    <h2>Welcome to Sumit Creator</h2>
+                    <p>Your one-stop destination for innovative APK solutions, cutting-edge AI editing tools, and creative technology resources. Explore our collection of tools and services designed to enhance your digital experience.</p>
+                    <a href="#" class="btn" data-page="sapk">Explore APKs</a>
+                </div>
+                
+                <div class="page-header">
+                    <h1>Our Services</h1>
+                    <p>Discover a wide range of tools and services tailored for developers, creators, and tech enthusiasts.</p>
+                </div>
+                
+                <div class="features">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>APK Collection</h3>
+                        <p>Access a curated collection of useful and safe APK files for various applications and tools.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>AI Editing Tools</h3>
+                        <p>Powerful AI-driven editing tools for images, videos, and documents to enhance your creative projects.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Tech Resources</h3>
+                        <p>Comprehensive tech tutorials, coding resources, and development tools for all skill levels.</p>
+                    </div>
+                </div>
+            </section>
             
-            <div class="search-container">
-                <input type="text" class="search-box" placeholder="Search for APK files (WhatsApp, Instagram, TikTok, etc.)">
-                <button class="search-btn"><i class="fas fa-search"></i> Search APKs</button>
-            </div>
+            <!-- SApk Page -->
+            <section class="page" id="sapk">
+                <div class="page-header">
+                    <h1>APK Collection</h1>
+                    <p>Browse our collection of safe and tested APK files for various applications and tools.</p>
+                </div>
+                
+                <div class="apk-grid">
+                    <div class="apk-card">
+                        <div class="apk-img">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <div class="apk-content">
+                            <h3>Photo Editor Pro</h3>
+                            <p>Advanced photo editing application with AI-powered tools and filters.</p>
+                            <div class="apk-meta">
+                                <span>Version: 3.2.1</span>
+                                <span>Size: 45 MB</span>
+                            </div>
+                            <a href="#" class="btn">Download</a>
+                        </div>
+                    </div>
+                    
+                    <div class="apk-card">
+                        <div class="apk-img">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <div class="apk-content">
+                            <h3>Video Maker Studio</h3>
+                            <p>Create professional videos with transitions, effects, and audio editing.</p>
+                            <div class="apk-meta">
+                                <span>Version: 2.5.0</span>
+                                <span>Size: 78 MB</span>
+                            </div>
+                            <a href="#" class="btn">Download</a>
+                        </div>
+                    </div>
+                    
+                    <div class="apk-card">
+                        <div class="apk-img">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <div class="apk-content">
+                            <h3>Audio Mixer</h3>
+                            <p>Edit, mix, and create audio tracks with multiple effects and tools.</p>
+                            <div class="apk-meta">
+                                <span>Version: 1.8.3</span>
+                                <span>Size: 32 MB</span>
+                            </div>
+                            <a href="#" class="btn">Download</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- About Page -->
+            <section class="page" id="about">
+                <div class="page-header">
+                    <h1>About Sumit Creator</h1>
+                    <p>Learn more about our mission, values, and the team behind Sumit Creator.</p>
+                </div>
+                
+                <div class="about-content">
+                    <div class="about-card">
+                        <h2>Our Story</h2>
+                        <p>Sumit Creator was founded in 2020 with a simple mission: to provide accessible, innovative tools and resources for developers and creators worldwide. What started as a small project has grown into a comprehensive platform serving thousands of users.</p>
+                        <p>Our team is passionate about technology and creativity, constantly exploring new ways to empower individuals and businesses with digital tools.</p>
+                    </div>
+                    
+                    <div class="about-card">
+                        <h2>Our Expertise</h2>
+                        <p>We specialize in mobile application development, AI-powered editing tools, and technology education. Our expertise spans across multiple domains:</p>
+                        
+                        <div class="skills">
+                            <span class="skill-tag">APK Development</span>
+                            <span class="skill-tag">AI/ML Integration</span>
+                            <span class="skill-tag">UI/UX Design</span>
+                            <span class="skill-tag">Video Editing Tools</span>
+                            <span class="skill-tag">Photo Editing Software</span>
+                            <span class="skill-tag">Web Development</span>
+                            <span class="skill-tag">Mobile Applications</span>
+                            <span class="skill-tag">Cloud Solutions</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Tach Page -->
+            <section class="page" id="tach">
+                <div class="page-header">
+                    <h1>Technology Resources</h1>
+                    <p>Explore tutorials, tools, and resources for developers and tech enthusiasts.</p>
+                </div>
+                
+                <div class="features">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Development Tutorials</h3>
+                        <p>Step-by-step guides for web development, mobile apps, and software engineering.</p>
+                        <a href="#" class="btn">Explore</a>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3>Development Tools</h3>
+                        <p>Curated collection of essential tools for developers, designers, and creators.</p>
+                        <a href="#" class="btn">Explore</a>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3>Learning Resources</h3>
+                        <p>Recommended books, courses, and platforms to enhance your tech skills.</p>
+                        <a href="#" class="btn">Explore</a>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Edition Page -->
+            <section class="page" id="edition">
+                <div class="page-header">
+                    <h1>Edition Tools</h1>
+                    <p>Professional editing tools for photos, videos, audio, and documents.</p>
+                </div>
+                
+                <div class="apk-grid">
+                    <div class="apk-card">
+                        <div class="apk-img">
+                            <i class="fas fa-image"></i>
+                        </div>
+                        <div class="apk-content">
+                            <h3>Photo Edition Pro</h3>
+                            <p>Advanced photo editing with layers, filters, and professional tools.</p>
+                            <a href="#" class="btn">Try Online</a>
+                        </div>
+                    </div>
+                    
+                    <div class="apk-card">
+                        <div class="apk-img">
+                            <i class="fas fa-film"></i>
+                        </div>
+                        <div class="apk-content">
+                            <h3>Video Editor Suite</h3>
+                            <p>Edit videos with timeline, effects, transitions, and color correction.</p>
+                            <a href="#" class="btn">Try Online</a>
+                        </div>
+                    </div>
+                    
+                    <div class="apk-card">
+                        <div class="apk-img">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="apk-content">
+                            <h3>Document Editor</h3>
+                            <p>Edit and format documents with collaborative features and templates.</p>
+                            <a href="#" class="btn">Try Online</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- AI Edit Page -->
+            <section class="page" id="ai-edit">
+                <div class="page-header">
+                    <h1>AI Editing Tools</h1>
+                    <p>Leverage artificial intelligence for enhanced editing and creative tasks.</p>
+                </div>
+                
+                <div class="features">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-magic"></i>
+                        </div>
+                        <h3>AI Photo Enhancer</h3>
+                        <p>Automatically enhance photo quality, remove objects, and apply AI filters.</p>
+                        <a href="#" class="btn">Try Tool</a>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>AI Video Assistant</h3>
+                        <p>AI-powered video editing with automatic scene detection and effects.</p>
+                        <a href="#" class="btn">Try Tool</a>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-text-height"></i>
+                        </div>
+                        <h3>AI Text Generator</h3>
+                        <p>Generate content, summarize text, and enhance writing with AI.</p>
+                        <a href="#" class="btn">Try Tool</a>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Contact Page -->
+            <section class="page" id="contact">
+                <div class="page-header">
+                    <h1>Contact Us</h1>
+                    <p>Get in touch with us for inquiries, collaborations, or support.</p>
+                </div>
+                
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Get In Touch</h3>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Address</h4>
+                                <p>123 Tech Street, Digital City</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+1 (234) 567-8900</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>info@sumitcreator.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <h3>Send Message</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" class="form-control" placeholder="Enter subject" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" class="form-control" placeholder="Enter your message" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
         </div>
-    </section>
-    
-    <!-- Categories Section -->
-    <section class="categories" id="categories">
-        <div class="container">
-            <h2 class="section-title">Browse by Category</h2>
-            <div class="categories-grid">
-                <div class="category-card" onclick="filterCategory('social')">
-                    <div class="category-icon" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="category-name">Social Media</div>
-                </div>
-                
-                <div class="category-card" onclick="filterCategory('games')">
-                    <div class="category-icon" style="background: linear-gradient(135deg, #10b981, #047857);">
-                        <i class="fas fa-gamepad"></i>
-                    </div>
-                    <div class="category-name">Games</div>
-                </div>
-                
-                <div class="category-card" onclick="filterCategory('tools')">
-                    <div class="category-icon" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <div class="category-name">Tools</div>
-                </div>
-                
-                <div class="category-card" onclick="filterCategory('entertainment')">
-                    <div class="category-icon" style="background: linear-gradient(135deg, #ef4444, #dc2626);">
-                        <i class="fas fa-film"></i>
-                    </div>
-                    <div class="category-name">Entertainment</div>
-                </div>
-                
-                <div class="category-card" onclick="filterCategory('productivity')">
-                    <div class="category-icon" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <div class="category-name">Productivity</div>
-                </div>
-                
-                <div class="category-card" onclick="filterCategory('all')">
-                    <div class="category-icon" style="background: linear-gradient(135deg, #6366f1, #4f46e5);">
-                        <i class="fas fa-th-large"></i>
-                    </div>
-                    <div class="category-name">View All</div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- APK List Section -->
-    <section class="apk-list" id="apks">
-        <div class="container">
-            <h2 class="section-title">Popular APK Downloads</h2>
-            <div class="apk-grid">
-                <!-- APK Card 1 -->
-                <div class="apk-card" data-category="social">
-                    <div class="apk-header">
-                        <div class="apk-icon" style="background: linear-gradient(135deg, #25D366, #128C7E);">
-                            <i class="fab fa-whatsapp"></i>
-                        </div>
-                        <div class="apk-info">
-                            <h3>WhatsApp</h3>
-                            <p>WhatsApp LLC</p>
-                        </div>
-                    </div>
-                    <div class="apk-details">
-                        <div class="apk-meta">
-                            <div class="apk-size"><i class="fas fa-download"></i> 45.2 MB</div>
-                            <div class="apk-version"><i class="fas fa-code-branch"></i> v2.23.10.75</div>
-                            <div class="apk-rating"><i class="fas fa-star"></i> 4.5</div>
-                        </div>
-                        <p class="apk-description">Free messaging and video calling app with end-to-end encryption.</p>
-                        <button class="download-btn" onclick="downloadAPK('WhatsApp')"><i class="fas fa-download"></i> Download APK</button>
-                    </div>
-                </div>
-                
-                <!-- APK Card 2 -->
-                <div class="apk-card" data-category="social">
-                    <div class="apk-header">
-                        <div class="apk-icon" style="background: linear-gradient(135deg, #405DE6, #833AB4);">
-                            <i class="fab fa-instagram"></i>
-                        </div>
-                        <div class="apk-info">
-                            <h3>Instagram</h3>
-                            <p>Instagram Inc.</p>
-                        </div>
-                    </div>
-                    <div class="apk-details">
-                        <div class="apk-meta">
-                            <div class="apk-size"><i class="fas fa-download"></i> 52.7 MB</div>
-                            <div class="apk-version"><i class="fas fa-code-branch"></i> v275.0.0.27.98</div>
-                            <div class="apk-rating"><i class="fas fa-star"></i> 4.3</div>
-                        </div>
-                        <p class="apk-description">Photo and video sharing social networking platform.</p>
-                        <button class="download-btn" onclick="downloadAPK('Instagram')"><i class="fas fa-download"></i> Download APK</button>
-                    </div>
-                </div>
-                
-                <!-- APK Card 3 -->
-                <div class="apk-card" data-category="entertainment">
-                    <div class="apk-header">
-                        <div class="apk-icon" style="background: linear-gradient(135deg, #000000, #434343);">
-                            <i class="fab fa-tiktok"></i>
-                        </div>
-                        <div class="apk-info">
-                            <h3>TikTok</h3>
-                            <p>TikTok Ltd.</p>
-                        </div>
-                    </div>
-                    <div class="apk-details">
-                        <div class="apk-meta">
-                            <div class="apk-size"><i class="fas fa-download"></i> 87.5 MB</div>
-                            <div class="apk-version"><i class="fas fa-code-branch"></i> v30.0.4</div>
-                            <div class="apk-rating"><i class="fas fa-star"></i> 4.2</div>
-                        </div>
-                        <p class="apk-description">Short-form mobile videos platform for creating and sharing videos.</p>
-                        <button class="download-btn" onclick="downloadAPK('TikTok')"><i class="fas fa-download"></i> Download APK</button>
-                    </div>
-                </div>
-                
-                <!-- APK Card 4 -->
-                <div class="apk-card" data-category="tools">
-                    <div class="apk-header">
-                        <div class="apk-icon" style="background: linear-gradient(135deg, #0F9D58, #0A8043);">
-                            <i class="fas fa-file-pdf"></i>
-                        </div>
-                        <div class="apk-info">
-                            <h3>Adobe Acrobat</h3>
-                            <p>Adobe Inc.</p>
-                        </div>
-                    </div>
-                    <div class="apk-details">
-                        <div class="apk-meta">
-                            <div class="apk-size"><i class="fas fa-download"></i> 68.3 MB</div>
-                            <div class="apk-version"><i class="fas fa-code-branch"></i> v23.8.0.33156</div>
-                            <div class="apk-rating"><i class="fas fa-star"></i> 4.4</div>
-                        </div>
-                        <p class="apk-description">View, annotate, sign, and share PDF documents on your mobile device.</p>
-                        <button class="download-btn" onclick="downloadAPK('Adobe Acrobat')"><i class="fas fa-download"></i> Download APK</button>
-                    </div>
-                </div>
-                
-                <!-- APK Card 5 -->
-                <div class="apk-card" data-category="games">
-                    <div class="apk-header">
-                        <div class="apk-icon" style="background: linear-gradient(135deg, #FF6B6B, #EE5A52);">
-                            <i class="fas fa-dragon"></i>
-                        </div>
-                        <div class="apk-info">
-                            <h3>Pokémon GO</h3>
-                            <p>Niantic, Inc.</p>
-                        </div>
-                    </div>
-                    <div class="apk-details">
-                        <div class="apk-meta">
-                            <div class="apk-size"><i class="fas fa-download"></i> 145.2 MB</div>
-                            <div class="apk-version"><i class="fas fa-code-branch"></i> v0.283.0</div>
-                            <div class="apk-rating"><i class="fas fa-star"></i> 4.1</div>
-                        </div>
-                        <p class="apk-description">Augmented reality mobile game where you catch Pokémon in the real world.</p>
-                        <button class="download-btn" onclick="downloadAPK('Pokémon GO')"><i class="fas fa-download"></i> Download APK</button>
-                    </div>
-                </div>
-                
-                <!-- APK Card 6 -->
-                <div class="apk-card" data-category="productivity">
-                    <div class="apk-header">
-                        <div class="apk-icon" style="background: linear-gradient(135deg, #4285F4, #3367D6);">
-                            <i class="fas fa-cloud"></i>
-                        </div>
-                        <div class="apk-info">
-                            <h3>Google Drive</h3>
-                            <p>Google LLC</p>
-                        </div>
-                    </div>
-                    <div class="apk-details">
-                        <div class="apk-meta">
-                            <div class="apk-size"><i class="fas fa-download"></i> 58.9 MB</div>
-                            <div class="apk-version"><i class="fas fa-code-branch"></i> v2.23.44.1</div>
-                            <div class="apk-rating"><i class="fas fa-star"></i> 4.6</div>
-                        </div>
-                        <p class="apk-description">Cloud storage service for file backup, sync, and sharing.</p>
-                        <button class="download-btn" onclick="downloadAPK('Google Drive')"><i class="fas fa-download"></i> Download APK</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="container">
-            <h2 class="section-title">Why Choose SApk Downloader?</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3 class="feature-title">Safe & Verified</h3>
-                    <p class="feature-description">All APK files are scanned for malware and viruses before being made available for download.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3 class="feature-title">Fast Downloads</h3>
-                    <p class="feature-description">High-speed servers ensure quick downloads without any speed restrictions or wait times.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-history"></i>
-                    </div>
-                    <h3 class="feature-title">Version History</h3>
-                    <p class="feature-description">Access previous versions of apps in case the latest update has issues or removed features.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3 class="feature-title">No Ads Version</h3>
-                    <p class="feature-description">Download modded APKs with removed ads for a better user experience.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
+    </main>
+
     <!-- Footer -->
-    <footer id="about">
+    <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <div class="footer-logo">
-                        <div class="footer-logo-icon">S</div>
-                        <div class="footer-logo-text"><span>S</span>Apk Downloader</div>
+                    <h3>Sumit Creator</h3>
+                    <p>Providing innovative tools and resources for developers, creators, and tech enthusiasts worldwide.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
-                    <p class="footer-about">SApk Downloader is a trusted platform for downloading safe and verified Android APK files. We provide the latest versions of popular apps with regular updates.</p>
                 </div>
                 
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#categories">Categories</a></li>
-                        <li><a href="#apks">Popular APKs</a></li>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#" data-page="home">Home</a></li>
+                        <li><a href="#" data-page="sapk">SApk</a></li>
+                        <li><a href="#" data-page="about">About</a></li>
+                        <li><a href="#" data-page="tach">Tach</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
-                    <h3>Legal</h3>
+                    <h3>Services</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Cookie Policy</a></li>
-                        <li><a href="#">DMCA</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#" data-page="edition">Edition Tools</a></li>
+                        <li><a href="#" data-page="ai-edit">AI Editing</a></li>
+                        <li><a href="#" data-page="sapk">APK Collection</a></li>
+                        <li><a href="#" data-page="contact">Contact Us</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
-                    <h3>Categories</h3>
-                    <ul class="footer-links">
-                        <li><a href="#" onclick="filterCategory('social')">Social Media</a></li>
-                        <li><a href="#" onclick="filterCategory('games')">Games</a></li>
-                        <li><a href="#" onclick="filterCategory('tools')">Tools</a></li>
-                        <li><a href="#" onclick="filterCategory('entertainment')">Entertainment</a></li>
-                        <li><a href="#" onclick="filterCategory('productivity')">Productivity</a></li>
-                    </ul>
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to get updates on new tools and resources.</p>
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Your Email" style="margin-top: 15px;">
+                        <button class="btn" style="margin-top: 10px; width: 100%;">Subscribe</button>
+                    </div>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>&copy; 2023 SApk Downloader. All rights reserved. This website is for educational purposes only.</p>
-                <p>All trademarks and registered trademarks are the property of their respective owners.</p>
+                <p>&copy; 2023 Sumit Creator. All rights reserved.</p>
             </div>
         </div>
     </footer>
-    
+
     <script>
-        // Mobile menu toggle
-        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
-            document.getElementById('mainNav').classList.toggle('active');
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mainNav.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
         });
         
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('#mainNav a').forEach(link => {
-            link.addEventListener('click', function() {
-                document.getElementById('mainNav').classList.remove('active');
-            });
-        });
+        // Page Navigation
+        const navLinks = document.querySelectorAll('.nav-link, .footer-links a');
+        const pages = document.querySelectorAll('.page');
         
-        // Download APK function
-        function downloadAPK(appName) {
-            // In a real implementation, this would redirect to the actual APK file
-            // For this demo, we'll just show a confirmation message
-            alert(`Downloading ${appName} APK...\n\nIn a real APK downloader, the file would start downloading now.\n\nFor security reasons, this demo doesn't actually download files.`);
-            
-            // You could redirect to an actual APK file like this:
-            // window.location.href = `https://example.com/download/${appName}.apk`;
-            
-            return false;
-        }
-        
-        // Search functionality
-        document.querySelector('.search-btn').addEventListener('click', function() {
-            const query = document.querySelector('.search-box').value;
-            if (query.trim() !== '') {
-                alert(`Searching for: "${query}"\n\nIn a real implementation, this would show APK results for your search.`);
-            } else {
-                alert('Please enter an app name to search for.');
-            }
-        });
-        
-        // Allow pressing Enter to search
-        document.querySelector('.search-box').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                document.querySelector('.search-btn').click();
-            }
-        });
-        
-        // Filter APKs by category
-        function filterCategory(category) {
-            const apkCards = document.querySelectorAll('.apk-card');
-            
-            if (category === 'all') {
-                // Show all APK cards
-                apkCards.forEach(card => {
-                    card.style.display = 'block';
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Get the page to show
+                const pageId = link.getAttribute('data-page');
+                
+                // Hide all pages
+                pages.forEach(page => {
+                    page.classList.remove('active');
                 });
-            } else {
-                // Show only cards with matching category
-                apkCards.forEach(card => {
-                    if (card.getAttribute('data-category') === category) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
+                
+                // Show selected page
+                document.getElementById(pageId).classList.add('active');
+                
+                // Update active nav link
+                document.querySelectorAll('.nav-link').forEach(navLink => {
+                    navLink.classList.remove('active');
                 });
-            }
-            
-            // Update active category button (if we had buttons)
-            document.querySelectorAll('.category-card').forEach(btn => {
-                btn.style.borderColor = '#e2e8f0';
-            });
-            
-            // Scroll to APK section
-            document.getElementById('apks').scrollIntoView({ behavior: 'smooth' });
-        }
-        
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('nav a, .footer-links a').forEach(link => {
-            link.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (href.startsWith('#')) {
-                    e.preventDefault();
-                    const targetId = href.substring(1);
-                    const targetElement = document.getElementById(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                    }
+                
+                // If it's a nav link (not footer), mark it as active
+                if (link.classList.contains('nav-link')) {
+                    link.classList.add('active');
+                }
+                
+                // Close mobile menu if open
+                if (window.innerWidth <= 768) {
+                    mainNav.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
                 }
             });
+        });
+        
+        // Contact Form Submission
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // In a real application, you would send this data to a server
+            // For this example, we'll just show an alert
+            alert(`Thank you ${name}! Your message has been sent. We'll get back to you at ${email} soon.`);
+            
+            // Reset form
+            contactForm.reset();
+        });
+        
+        // Initialize page with Home active
+        document.addEventListener('DOMContentLoaded', () => {
+            // Ensure home page is active
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById('home').classList.add('active');
+            
+            // Ensure home nav link is active
+            document.querySelectorAll('.nav-link').forEach(navLink => {
+                navLink.classList.remove('active');
+            });
+            document.querySelector('[data-page="home"]').classList.add('active');
         });
     </script>
 </body>
