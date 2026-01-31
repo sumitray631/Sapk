@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Editing Tools - Sumit Creator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #4a6fa5;
+            --secondary: #166088;
+            --accent: #ff6b6b;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --gray: #6c757d;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            background-color: var(--primary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo-text span {
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            padding: 8px 5px;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        nav ul li a.active {
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+        
+        /* Main Content */
+        main {
+            min-height: calc(100vh - 200px);
+            padding: 40px 0;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .page-header p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .ai-tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .ai-tool-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .ai-tool-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .ai-tool-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .ai-tool-header i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .ai-tool-header h3 {
+            font-size: 1.5rem;
+        }
+        
+        .ai-tool-content {
+            padding: 25px;
+        }
+        
+        .ai-tool-content p {
+            margin-bottom: 20px;
+            min-height: 80px;
+        }
+        
+        .ai-features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+        
+        .ai-features li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .ai-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .ai-features li i {
+            color: #764ba2;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .ai-showcase {
+            margin-top: 60px;
+        }
+        
+        .showcase-content {
+            background-color: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .showcase-text h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+        
+        .showcase-features {
+            list-style: none;
+            margin-top: 20px;
+        }
+        
+        .showcase-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .showcase-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .showcase-features li i {
+            color: #764ba2;
+            font-size: 1.2rem;
+        }
+        
+        .showcase-image {
+            text-align: center;
+        }
+        
+        .showcase-image i {
+            font-size: 8rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+            padding-right: 20px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #b0b7c3;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #b0b7c3;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .showcase-text h2 {
+                font-size: 1.6rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            nav {
+                width: 100%;
+                margin-top: 15px;
+                display: none;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            nav ul li {
+                margin-left: 0;
+                margin-bottom: 10px;
+            }
+            
+            nav ul li a {
+                display: block;
+                padding: 10px 0;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+            
+            .ai-tools-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .showcase-content {
+                grid-template-columns: 1fr;
+                padding: 25px;
+            }
+            
+            .footer-column {
+                min-width: 100%;
+                padding-right: 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .showcase-image i {
+                font-size: 5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">SC</div>
+                    <div class="logo-text">Sumit <span>Creator</span></div>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <nav id="mainNav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="sapk.html" target="_blank">SApk</a></li>
+                        <li><a href="about.html" target="_blank">About</a></li>
+                        <li><a href="tach.html" target="_blank">Tach</a></li>
+                        <li><a href="edition.html" target="_blank">Edition</a></li>
+                        <li><a href="ai-edit.html" class="active">AI Edit</a></li>
+                        <li><a href="contact.html" target="_blank">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <div class="page-header">
+                <h1>AI Editing Tools</h1>
+                <p>Leverage artificial intelligence for enhanced editing and creative tasks. Our AI tools make complex editing simple and accessible.</p>
+            </div>
+            
+            <div class="ai-tools-grid">
+                <div class="ai-tool-card">
+                    <div class="ai-tool-header">
+                        <i class="fas fa-magic"></i>
+                        <h3>AI Photo Enhancer</h3>
+                    </div>
+                    <div class="ai-tool-content">
+                        <p>Automatically enhance photo quality, remove objects, and apply AI filters with one click.</p>
+                        <ul class="ai-features">
+                            <li><i class="fas fa-check"></i> Auto-enhancement</li>
+                            <li><i class="fas fa-check"></i> Object removal</li>
+                            <li><i class="fas fa-check"></i> Style transfer</li>
+                            <li><i class="fas fa-check"></i> Face enhancement</li>
+                        </ul>
+                        <a href="#" class="btn" onclick="openAIPhotoEditor()">Try AI Photo Tool</a>
+                    </div>
+                </div>
+                
+                <div class="ai-tool-card">
+                    <div class="ai-tool-header">
+                        <i class="fas fa-brain"></i>
+                        <h3>AI Video Assistant</h3>
+                    </div>
+                    <div class="ai-tool-content">
+                        <p>AI-powered video editing with automatic scene detection, effects, and smart trimming.</p>
+                        <ul class="ai-features">
+                            <li><i class="fas fa-check"></i> Scene detection</li>
+                            <li><i class="fas fa-check"></i> Auto-editing</li>
+                            <li><i class="fas fa-check"></i> Color correction</li>
+                            <li><i class="fas fa-check"></i> Smart subtitles</li>
+                        </ul>
+                        <a href="#" class="btn" onclick="openAIVideoEditor()">Try AI Video Tool</a>
+                    </div>
+                </div>
+                
+                <div class="ai-tool-card">
+                    <div class="ai-tool-header">
+                        <i class="fas fa-text-height"></i>
+                        <h3>AI Text Generator</h3>
+                    </div>
+                    <div class="ai-tool-content">
+                        <p>Generate content, summarize text, and enhance writing with advanced AI language models.</p>
+                        <ul class="ai-features">
+                            <li><i class="fas fa-check"></i> Content generation</li>
+                            <li><i class="fas fa-check"></i> Text summarization</li>
+                            <li><i class="fas fa-check"></i> Grammar checking</li>
+                            <li><i class="fas fa-check"></i> Tone adjustment</li>
+                        </ul>
+                        <a href="#" class="btn" onclick="openAITextGenerator()">Try AI Text Tool</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ai-showcase">
+                <div class="showcase-content">
+                    <div class="showcase-text">
+                        <h2>Why Choose AI Editing?</h2>
+                        <p>Our AI-powered tools revolutionize the editing process by automating complex tasks and providing intelligent suggestions.</p>
+                        
+                        <ul class="showcase-features">
+                            <li><i class="fas fa-bolt"></i> <strong>10x Faster</strong> - Complete editing tasks in minutes instead of hours</li>
+                            <li><i class="fas fa-robot"></i> <strong>Smart Automation</strong> - AI learns your style and preferences</li>
+                            <li><i class="fas fa-chart-line"></i> <strong>Professional Results</strong> - Achieve studio-quality output effortlessly</li>
+                            <li><i class="fas fa-user-friends"></i> <strong>Beginner Friendly</strong> - No technical skills required</li>
+                        </ul>
+                        
+                        <a href="#" class="btn" style="width: auto; margin-top: 20px;">Explore All AI Tools</a>
+                    </div>
+                    
+                    <div class="showcase-image">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Sumit Creator</h3>
+                    <p>Providing innovative tools and resources for developers, creators, and tech enthusiasts worldwide.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="sapk.html" target="_blank">SApk</a></li>
+                        <li><a href="about.html" target="_blank">About</a></li>
+                        <li><a href="tach.html" target="_blank">Tach</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="edition.html" target="_blank">Edition Tools</a></li>
+                        <li><a href="ai-edit.html" class="active">AI Editing</a></li>
+                        <li><a href="sapk.html" target="_blank">APK Collection</a></li>
+                        <li><a href="contact.html" target="_blank">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="privacy.html" target="_blank">Privacy Policy</a></li>
+                        <li><a href="terms.html" target="_blank">Terms & Conditions</a></li>
+                        <li><a href="about.html" target="_blank">About Us</a></li>
+                        <li><a href="contact.html" target="_blank">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Sumit Creator. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mainNav.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // AI Tool Functions
+        function openAIPhotoEditor() {
+            alert('Opening AI Photo Enhancer... This tool would use AI to automatically enhance your photos.');
+        }
+        
+        function openAIVideoEditor() {
+            alert('Opening AI Video Assistant... This tool would use AI to automatically edit your videos.');
+        }
+        
+        function openAITextGenerator() {
+            alert('Opening AI Text Generator... This tool would use AI to help you write and edit text.');
+        }
+    </script>
+</body>
+</html>
