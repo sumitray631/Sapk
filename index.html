@@ -73,14 +73,10 @@
             align-items: center;
         }
         
-        .top-header-links {
-            display: flex;
-            gap: 20px;
-        }
-        
         .top-header-links a {
             color: white;
             text-decoration: none;
+            margin-left: 20px;
             transition: opacity 0.3s;
         }
         
@@ -161,17 +157,10 @@
             padding: 15px;
             display: none;
             z-index: 1001;
-            border: 1px solid #eaeaea;
         }
         
         .search-box.active {
             display: block;
-            animation: slideDown 0.3s ease;
-        }
-        
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
         }
         
         .search-box input {
@@ -183,97 +172,6 @@
             margin-bottom: 10px;
         }
         
-        .search-box input:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-        
-        .search-results {
-            max-height: 300px;
-            overflow-y: auto;
-        }
-        
-        .search-result-item {
-            padding: 10px;
-            border-bottom: 1px solid #eee;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-        
-        .search-result-item:hover {
-            background-color: #f8f9fa;
-        }
-        
-        .search-result-item h4 {
-            color: var(--primary);
-            margin-bottom: 5px;
-        }
-        
-        .search-result-item p {
-            font-size: 0.85rem;
-            color: var(--gray);
-        }
-        
-        .more-menu-container {
-            position: relative;
-        }
-        
-        .more-menu-btn {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--dark);
-            cursor: pointer;
-            padding: 5px 10px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .more-menu-btn:hover {
-            background-color: #f0f0f0;
-            color: var(--primary);
-        }
-        
-        .more-menu {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            width: 200px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            display: none;
-            z-index: 1001;
-            border: 1px solid #eaeaea;
-        }
-        
-        .more-menu.active {
-            display: block;
-            animation: slideDown 0.3s ease;
-        }
-        
-        .more-menu a {
-            display: block;
-            padding: 12px 15px;
-            color: var(--dark);
-            text-decoration: none;
-            border-bottom: 1px solid #eee;
-            transition: all 0.3s ease;
-        }
-        
-        .more-menu a:last-child {
-            border-bottom: none;
-        }
-        
-        .more-menu a:hover {
-            background-color: #f8f9fa;
-            color: var(--primary);
-            padding-left: 20px;
-        }
-        
         nav ul {
             display: flex;
             list-style: none;
@@ -281,7 +179,6 @@
         
         nav ul li {
             margin-left: 25px;
-            position: relative;
         }
         
         nav ul li a {
@@ -291,10 +188,6 @@
             font-size: 1rem;
             transition: all 0.3s ease;
             padding: 8px 5px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            gap: 5px;
         }
         
         nav ul li a:hover {
@@ -303,50 +196,7 @@
         
         nav ul li a.active {
             color: var(--primary);
-        }
-        
-        nav ul li a.active::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background-color: var(--primary);
-        }
-        
-        .dropdown {
-            position: relative;
-        }
-        
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: white;
-            min-width: 200px;
-            box-shadow: var(--shadow);
-            border-radius: 5px;
-            z-index: 1;
-            top: 100%;
-            left: 0;
-            overflow: hidden;
-        }
-        
-        .dropdown-content a {
-            color: var(--dark);
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .dropdown-content a:hover {
-            background-color: #f8f9fa;
-            color: var(--primary);
-        }
-        
-        .dropdown:hover .dropdown-content {
-            display: block;
+            border-bottom: 3px solid var(--primary);
         }
         
         .mobile-menu-btn {
@@ -364,38 +214,6 @@
             padding: 40px 0;
         }
         
-        .page {
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-        
-        .page.active {
-            display: block;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .page-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        .page-header h1 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-        
-        .page-header p {
-            color: var(--gray);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        /* Home Page */
         .hero {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
@@ -441,11 +259,29 @@
         
         .btn-secondary {
             background-color: var(--primary);
+            margin-left: 10px;
         }
         
         .btn-secondary:hover {
             background-color: var(--secondary);
             box-shadow: 0 6px 15px rgba(74, 111, 165, 0.3);
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .page-header p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
         }
         
         .features {
@@ -484,49 +320,6 @@
             font-size: 1.5rem;
             margin-bottom: 15px;
             color: var(--primary);
-        }
-        
-        /* Search Page */
-        .search-page-content {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-        }
-        
-        .search-results-page {
-            margin-top: 30px;
-        }
-        
-        .search-result-card {
-            padding: 20px;
-            border-bottom: 1px solid #eee;
-            transition: background-color 0.3s;
-        }
-        
-        .search-result-card:hover {
-            background-color: #f8f9fa;
-        }
-        
-        .search-result-card h3 {
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-        
-        .search-result-card .category {
-            display: inline-block;
-            background-color: rgba(74, 111, 165, 0.1);
-            color: var(--primary);
-            padding: 3px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin-bottom: 10px;
-        }
-        
-        .no-results {
-            text-align: center;
-            padding: 40px;
-            color: var(--gray);
         }
         
         /* Footer */
@@ -611,14 +404,6 @@
             .hero h2 {
                 font-size: 2.2rem;
             }
-            
-            .page-header h1 {
-                font-size: 2rem;
-            }
-            
-            .search-box {
-                width: 250px;
-            }
         }
         
         @media (max-width: 768px) {
@@ -629,12 +414,6 @@
             .header-content {
                 flex-direction: column;
                 align-items: flex-start;
-            }
-            
-            .header-right {
-                position: absolute;
-                top: 20px;
-                right: 60px;
             }
             
             nav {
@@ -661,32 +440,6 @@
                 display: block;
                 padding: 10px 0;
                 border-bottom: 1px solid #eee;
-            }
-            
-            nav ul li a.active::after {
-                display: none;
-            }
-            
-            .dropdown-content {
-                position: static;
-                box-shadow: none;
-                border-radius: 0;
-                display: none;
-                margin-left: 20px;
-            }
-            
-            .dropdown.active .dropdown-content {
-                display: block;
-            }
-            
-            .search-box {
-                right: -100px;
-                width: calc(100vw - 40px);
-                max-width: 300px;
-            }
-            
-            .more-menu {
-                right: -50px;
             }
             
             .mobile-menu-btn {
@@ -719,10 +472,6 @@
                 padding: 0 15px;
             }
             
-            .header-right {
-                right: 50px;
-            }
-            
             .hero h2 {
                 font-size: 1.6rem;
             }
@@ -731,27 +480,25 @@
                 font-size: 1.8rem;
             }
             
-            .search-box {
-                right: -80px;
-            }
-            
-            .more-menu {
-                right: -30px;
+            .btn-secondary {
+                margin-left: 0;
+                margin-top: 10px;
+                display: block;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header & Navigation -->
+    <!-- Header -->
     <header>
         <div class="top-header">
             <div class="container top-header-content">
-                <div>Welcome to Sumit Creator - Your Creative Tech Partner</div>
+                <div>Welcome to Sumit Creator - Your Creative edit Partner</div>
                 <div class="top-header-links">
-                    <a href="#" data-page="about">About Us</a>
-                    <a href="#" data-page="contact">Contact Us</a>
-                    <a href="#" data-page="privacy">Privacy Policy</a>
-                    <a href="#" data-page="terms">Terms & Conditions</a>
+                    <a href="about.html" target="_blank">About Us</a>
+                    <a href="contact.html" target="_blank">Contact Us</a>
+                    <a href="privacy.html" target="_blank">Privacy Policy</a>
+                    <a href="terms.html" target="_blank">Terms & Conditions</a>
                 </div>
             </div>
         </div>
@@ -764,30 +511,12 @@
                 </div>
                 
                 <div class="header-right">
-                    <!-- Search Icon -->
                     <div class="search-container">
                         <button class="search-icon" id="searchIcon">
                             <i class="fas fa-search"></i>
                         </button>
                         <div class="search-box" id="searchBox">
-                            <input type="text" id="searchInput" placeholder="Search for tools, APKs, tutorials...">
-                            <div class="search-results" id="quickSearchResults">
-                                <!-- Quick search results will appear here -->
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- 3 Dots More Menu -->
-                    <div class="more-menu-container">
-                        <button class="more-menu-btn" id="moreMenuBtn">
-                            <i class="fas fa-ellipsis-v"></i>
-                        </button>
-                        <div class="more-menu" id="moreMenu">
-                            <a href="#" data-page="about">About Us</a>
-                            <a href="#" data-page="contact">Contact Us</a>
-                            <a href="#" data-page="privacy">Privacy Policy</a>
-                            <a href="#" data-page="terms">Terms & Conditions</a>
-                            <a href="#" id="darkModeToggle">Dark Mode</a>
+                            <input type="text" id="searchInput" placeholder="Search...">
                         </div>
                     </div>
                 </div>
@@ -798,13 +527,12 @@
                 
                 <nav id="mainNav">
                     <ul>
-                        <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
-                        <li><a href="#" class="nav-link" data-page="sapk">SApk</a></li>
-                        <li><a href="#" class="nav-link" data-page="News">News</a></li>
-                        <li><a href="#" class="nav-link" data-page="tach">Tach</a></li>
-                        <li><a href="#" class="nav-link" data-page="edition">Edition</a></li>
-                        <li><a href="#" class="nav-link" data-page="ai-edit">AI Edit</a></li>
-                        <li><a href="#" class="nav-link" data-page="contact">Contact Us</a></li>
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="sapk.html" target="_blank">SApk</a></li>
+                        <li><a href="tach.html" target="_blank">Tach</a></li>
+                        <li><a href="edition.html" target="_blank">Edition</a></li>
+                        <li><a href="ai-edit.html" target="_blank">AI Edit</a></li>
+                        <li><a href="contact.html" target="_blank">Contact Us</a></li>
                     </ul>
                 </nav>
             </div>
@@ -814,357 +542,43 @@
     <!-- Main Content -->
     <main>
         <div class="container">
-            <!-- Home Page -->
-            <section class="page active" id="home">
-                <div class="hero">
-                    <h2>Welcome to Sumit Creator</h2>
-                    <p>Your one-stop destination for innovative APK solutions, cutting-edge AI editing tools, and creative technology resources. Explore our collection of tools and services designed to enhance your digital experience.</p>
-                    <a href="#" class="btn" data-page="sapk">Explore APKs</a>
-                    <a href="#" class="btn btn-secondary" data-page="about" style="margin-left: 10px;">Learn More</a>
-                </div>
-                
-                <div class="page-header">
-                    <h1>Our Services</h1>
-                    <p>Discover a wide range of tools and services tailored for developers, creators, and tech enthusiasts.</p>
-                </div>
-                
-                <div class="features">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-mobile-alt"></i>
-                        </div>
-                        <h3>APK Collection</h3>
-                        <p>Access a curated collection of useful and safe APK files for various applications and tools.</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                        <h3>AI Editing Tools</h3>
-                        <p>Powerful AI-driven editing tools for images, videos, and documents to enhance your creative projects.</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <h3>Tech Resources</h3>
-                        <p>Comprehensive tech tutorials, coding resources, and development tools for all skill levels.</p>
-                    </div>
-                </div>
-            </section>
+            <div class="hero">
+                <h2>Welcome to Sumit Creator</h2>
+            </div>
             
-            <!-- SApk Page -->
-            <section class="page" id="sapk">
-                <div class="page-header">
-                    <h1>APK Collection</h1>
-                    <p>Browse our collection of safe and tested APK files for various applications and tools.</p>
-                </div>
-                
-                <div class="features">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-camera"></i>
-                        </div>
-                        <h3>Photo Editor Pro</h3>
-                        <p>Advanced photo editing application with AI-powered tools and filters.</p>
-                        <div style="margin-top: 20px;">
-                            <span style="color: var(--gray); font-size: 0.9rem;">Version: 3.2.1 | Size: 45 MB</span>
-                        </div>
-                        <a href="#" class="btn" style="margin-top: 15px;">Download</a>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-video"></i>
-                        </div>
-                        <h3>Video Maker Studio</h3>
-                        <p>Create professional videos with transitions, effects, and audio editing.</p>
-                        <div style="margin-top: 20px;">
-                            <span style="color: var(--gray); font-size: 0.9rem;">Version: 2.5.0 | Size: 78 MB</span>
-                        </div>
-                        <a href="#" class="btn" style="margin-top: 15px;">Download</a>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-music"></i>
-                        </div>
-                        <h3>Audio Mixer</h3>
-                        <p>Edit, mix, and create audio tracks with multiple effects and tools.</p>
-                        <div style="margin-top: 20px;">
-                            <span style="color: var(--gray); font-size: 0.9rem;">Version: 1.8.3 | Size: 32 MB</span>
-                        </div>
-                        <a href="#" class="btn" style="margin-top: 15px;">Download</a>
-                    </div>
-                </div>
-            </section>
+            <div class="page-header">
+                <h1>Our Services</h1>
+                <p>Discover a wide range of tools and services tailored for developers, creators, and tech enthusiasts.</p>
+            </div>
             
-            <!-- About Page -->
-            <section class="page" id="about">
-                <!-- About content remains the same -->
-                <div class="page-header">
-                    <h1>About Sumit Creator</h1>
-                    <p>Learn more about our mission, values, and the team behind Sumit Creator.</p>
-                </div>
-                
-                <div class="features">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-history"></i>
-                        </div>
-                        <h3>Our Story</h3>
-                        <p>Founded in 2020, Sumit Creator began as a passion project and has grown into a comprehensive platform serving thousands of users worldwide.</p>
-                        <a href="#" class="btn" style="margin-top: 15px;">Read More</a>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
                     </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-bullseye"></i>
-                        </div>
-                        <h3>Our Mission</h3>
-                        <p>To empower creators, developers, and tech enthusiasts with accessible, innovative tools and resources for digital creativity.</p>
-                        <a href="#" class="btn" style="margin-top: 15px;">Read More</a>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h3>Our Team</h3>
-                        <p>A diverse team of passionate individuals dedicated to empowering creators worldwide with cutting-edge technology solutions.</p>
-                        <a href="#" class="btn" style="margin-top: 15px;">Meet the Team</a>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- Tach Page -->
-            <section class="page" id="tach">
-                <div class="page-header">
-                    <h1>Technology Resources</h1>
-                    <p>Explore tutorials, tools, and resources for developers and tech enthusiasts.</p>
-                </div>
-                
-                <div class="features">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-laptop-code"></i>
-                        </div>
-                        <h3>Development Tutorials</h3>
-                        <p>Step-by-step guides for web development, mobile apps, and software engineering.</p>
-                        <a href="#" class="btn">Explore</a>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-tools"></i>
-                        </div>
-                        <h3>Development Tools</h3>
-                        <p>Curated collection of essential tools for developers, designers, and creators.</p>
-                        <a href="#" class="btn">Explore</a>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-book"></i>
-                        </div>
-                        <h3>Learning Resources</h3>
-                        <p>Recommended books, courses, and platforms to enhance your tech skills.</p>
-                        <a href="#" class="btn">Explore</a>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- Edition Page -->
-            <section class="page" id="edition">
-                <div class="page-header">
-                    <h1>Edition Tools</h1>
-                    <p>Professional editing tools for photos, videos, audio, and documents.</p>
-                </div>
-                
-                <div class="features">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-image"></i>
-                        </div>
-                        <h3>Photo Edition Pro</h3>
-                        <p>Advanced photo editing with layers, filters, and professional tools.</p>
-                        <a href="#" class="btn">Try Online</a>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-film"></i>
-                        </div>
-                        <h3>Video Editor Suite</h3>
-                        <p>Edit videos with timeline, effects, transitions, and color correction.</p>
-                        <a href="#" class="btn">Try Online</a>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-file-alt"></i>
-                        </div>
-                        <h3>Document Editor</h3>
-                        <p>Edit and format documents with collaborative features and templates.</p>
-                        <a href="#" class="btn">Try Online</a>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- AI Edit Page -->
-            <section class="page" id="ai-edit">
-                <div class="page-header">
-                    <h1>AI Editing Tools</h1>
-                    <p>Leverage artificial intelligence for enhanced editing and creative tasks.</p>
-                </div>
-                
-                <div class="features">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-magic"></i>
-                        </div>
-                        <h3>AI Photo Enhancer</h3>
-                        <p>Automatically enhance photo quality, remove objects, and apply AI filters.</p>
-                        <a href="#" class="btn">Try Tool</a>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-brain"></i>
-                        </div>
-                        <h3>AI Video Assistant</h3>
-                        <p>AI-powered video editing with automatic scene detection and effects.</p>
-                        <a href="#" class="btn">Try Tool</a>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-text-height"></i>
-                        </div>
-                        <h3>AI Text Generator</h3>
-                        <p>Generate content, summarize text, and enhance writing with AI.</p>
-                        <a href="#" class="btn">Try Tool</a>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- Contact Page -->
-            <section class="page" id="contact">
-                <div class="page-header">
-                    <h1>Contact Us</h1>
-                    <p>Get in touch with us for inquiries, collaborations, or support.</p>
-                </div>
-                
-                <div class="features">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <h3>Send Us a Message</h3>
-                        <form id="contactForm" style="margin-top: 20px;">
-                            <div style="margin-bottom: 15px;">
-                                <input type="text" class="form-control" placeholder="Your Name" required>
-                            </div>
-                            <div style="margin-bottom: 15px;">
-                                <input type="email" class="form-control" placeholder="Your Email" required>
-                            </div>
-                            <div style="margin-bottom: 15px;">
-                                <input type="text" class="form-control" placeholder="Subject" required>
-                            </div>
-                            <div style="margin-bottom: 20px;">
-                                <textarea class="form-control" placeholder="Your Message" rows="4" required></textarea>
-                            </div>
-                            <button type="submit" class="btn">Send Message</button>
-                        </form>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-info-circle"></i>
-                        </div>
-                        <h3>Contact Information</h3>
-                        <div style="margin-top: 20px;">
-                            <p><i class="fas fa-map-marker-alt" style="color: var(--primary); margin-right: 10px;"></i> 123 Tech Street, Digital City, DC 10001</p>
-                            <p><i class="fas fa-phone" style="color: var(--primary); margin-right: 10px;"></i> +1 (234) 567-8900</p>
-                            <p><i class="fas fa-envelope" style="color: var(--primary); margin-right: 10px;"></i> info@sumitcreator.com</p>
-                            <p><i class="fas fa-clock" style="color: var(--primary); margin-right: 10px;"></i> Mon-Fri: 9AM-6PM</p>
-                        </div>
-                        
-                        <h3 style="margin-top: 30px;">Follow Us</h3>
-                        <div class="social-links" style="margin-top: 15px;">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- Privacy Policy Page -->
-            <section class="page" id="privacy">
-                <div class="page-header">
-                    <h1>Privacy Policy</h1>
-                    <p>How we collect, use, and protect your personal information.</p>
+                    <h3>APK Collection</h3>
+                    <p>Access a curated collection of useful and safe APK files for various applications and tools.</p>
+                    <a href="sapk.html" class="btn" target="_blank" style="margin-top: 15px;">Browse APKs</a>
                 </div>
                 
                 <div class="feature-card">
-                    <h2>Privacy Policy</h2>
-                    <p><strong>Last Updated:</strong> January 1, 2023</p>
-                    
-                    <p>At Sumit Creator, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.</p>
-                    
-                    <h3 style="margin-top: 20px;">Information We Collect</h3>
-                    <p>We may collect personal information that you voluntarily provide to us when you:</p>
-                    <ul>
-                        <li>Register on our website</li>
-                        <li>Download our applications</li>
-                        <li>Subscribe to our newsletter</li>
-                        <li>Contact us through our support channels</li>
-                        <li>Participate in surveys or promotions</li>
-                    </ul>
-                </div>
-            </section>
-            
-            <!-- Terms & Conditions Page -->
-            <section class="page" id="terms">
-                <div class="page-header">
-                    <h1>Terms & Conditions</h1>
-                    <p>Terms governing the use of Sumit Creator services and website.</p>
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI Editing Tools</h3>
+                    <p>Powerful AI-driven editing tools for images, videos, and documents to enhance your creative projects.</p>
+                    <a href="ai-edit.html" class="btn" target="_blank" style="margin-top: 15px;">Explore AI Tools</a>
                 </div>
                 
                 <div class="feature-card">
-                    <h2>Terms and Conditions</h2>
-                    <p><strong>Last Updated:</strong> January 1, 2023</p>
-                    
-                    <p>Welcome to Sumit Creator. These Terms and Conditions govern your use of our website and services. By accessing or using our services, you agree to be bound by these Terms.</p>
-                    
-                    <h3 style="margin-top: 20px;">Use License</h3>
-                    <p>Permission is granted to temporarily download one copy of the materials (information or software) on Sumit Creator's website for personal, non-commercial transitory viewing only.</p>
-                </div>
-            </section>
-            
-            <!-- Search Results Page -->
-            <section class="page" id="search-results">
-                <div class="page-header">
-                    <h1>Search Results</h1>
-                    <p>Results for: <span id="searchQueryDisplay" style="color: var(--primary); font-weight: bold;"></span></p>
-                </div>
-                
-                <div class="search-page-content">
-                    <div class="search-results-page" id="searchResultsPage">
-                        <!-- Search results will be displayed here -->
-                        <div class="no-results" id="noResultsMessage">
-                            <i class="fas fa-search" style="font-size: 3rem; margin-bottom: 20px; color: #ddd;"></i>
-                            <h3>No results found</h3>
-                            <p>Try searching for something else</p>
-                        </div>
+                    <div class="feature-icon">
+                        <i class="fas fa-code"></i>
                     </div>
+                    <h3>Tech Resources</h3>
+                    <p>Comprehensive tech tutorials, coding resources, and development tools for all skill levels.</p>
+                    <a href="tach.html" class="btn" target="_blank" style="margin-top: 15px;">Learn Tech</a>
                 </div>
-            </section>
+            </div>
         </div>
     </main>
 
@@ -1177,427 +591,74 @@
                     <p>Providing innovative tools and resources for developers, creators, and tech enthusiasts worldwide.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/sumitray631?igsh=a3luaWppdzlpMWFo"><i class="fab fa-instagram"></i></a>
-                        <a href="https://youtube.com/@sumitray631?si=CY9SEZlmil-AUJu5"><i class="fab fa-Youtube-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="#" data-page="home">Home</a></li>
-                        <li><a href="#" data-page="sapk">SApk</a></li>
-                        <li><a href="#" data-page="about">About</a></li>
-                        <li><a href="#" data-page="News">News</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="sapk.html" target="_blank">SApk</a></li>
+                        <li><a href="about.html" target="_blank">About</a></li>
+                        <li><a href="tach.html" target="_blank">Tach</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
                     <h3>Services</h3>
-                    <ul class="footer-li ka">
-                        <li><a href="#" data-page="P edition tutorial"> Photo Edition tutorial</a></li>
-                        <li><a href="#" data-page="ai-edit">AI Editing</a></li>
-                        <li><a href="#" data-page="sapk">APK Collection</a></li>
-                        <li><a href="#" data-page="V editing tutorial">video editing tutorial</a></li>
+                    <ul class="footer-links">
+                        <li><a href="edition.html" target="_blank">Edition Tools</a></li>
+                        <li><a href="ai-edit.html" target="_blank">AI Editing</a></li>
+                        <li><a href="sapk.html" target="_blank">APK Collection</a></li>
+                        <li><a href="contact.html" target="_blank">Contact Us</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
                     <h3>Legal</h3>
                     <ul class="footer-links">
-                        <li><a href="#" data-page="privacy">Privacy Policy</a></li>
-                        <li><a href="#" data-page="terms">Terms & Conditions</a></li>
-                        <li><a href="#" data-page="about">About Us</a></li>
-                        <li><a href="#" data-page="contact">Contact Us</a></li>
+                        <li><a href="privacy.html" target="_blank">Privacy Policy</a></li>
+                        <li><a href="terms.html" target="_blank">Terms & Conditions</a></li>
+                        <li><a href="about.html" target="_blank">About Us</a></li>
+                        <li><a href="contact.html" target="_blank">Contact Us</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>&copy; 2026 Sumit Creator. All rights reserved. | <a href="#" data-page="privacy" style="color: #b0b7c3;">Privacy Policy</a> | <a href="#" data-page="terms" style="color: #b0b7c3;">Terms & Conditions</a></p>
+                <p>&copy; 2023 Sumit Creator. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Sample data for search functionality
-        const searchData = [
-            {
-                id: 1,
-                title: "Photo Editor Pro",
-                description: "Advanced photo editing application with AI-powered tools and filters.",
-                category: "APK",
-                page: "sapk"
-            },
-            {
-                id: 2,
-                title: "Video Maker Studio",
-                description: "Create professional videos with transitions, effects, and audio editing.",
-                category: "APK",
-                page: "sapk"
-            },
-            {
-                id: 3,
-                title: "AI Photo Enhancer",
-                description: "Automatically enhance photo quality, remove objects, and apply AI filters.",
-                category: "AI Tools",
-                page: "ai-edit"
-            },
-            {
-                id: 4,
-                title: "Development Tutorials",
-                description: "Step-by-step guides for web development, mobile apps, and software engineering.",
-                category: "Tach",
-                page: "tach"
-            },
-            {
-                id: 5,
-                title: "Photo Edition Pro",
-                description: "Advanced photo editing with layers, filters, and professional tools.",
-                category: "Edition",
-                page: "edition"
-            },
-            {
-                id: 6,
-                title: "Privacy Policy",
-                description: "How we collect, use, and protect your personal information.",
-                category: "Legal",
-                page: "privacy"
-            },
-            {
-                id: 7,
-                title: "Terms & Conditions",
-                description: "Terms governing the use of Sumit Creator services and website.",
-                category: "Legal",
-                page: "terms"
-            },
-            {
-                id: 8,
-                title: "About Sumit Creator",
-                description: "Learn more about our mission, values, and the team behind Sumit Creator.",
-                category: "About",
-                page: "about"
-            },
-            {
-                id: 9,
-                title: "Contact Us",
-                description: "Get in touch with us for inquiries, collaborations, or support.",
-                category: "Contact",
-                page: "contact"
-            },
-            {
-                id: 10,
-                title: "Audio Mixer",
-                description: "Edit, mix, and create audio tracks with multiple effects and tools.",
-                category: "APK",
-                page: "sapk"
-            }
-        ];
-
-        // DOM Elements
+        // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mainNav = document.getElementById('mainNav');
-        const searchIcon = document.getElementById('searchIcon');
-        const searchBox = document.getElementById('searchBox');
-        const searchInput = document.getElementById('searchInput');
-        const quickSearchResults = document.getElementById('quickSearchResults');
-        const moreMenuBtn = document.getElementById('moreMenuBtn');
-        const moreMenu = document.getElementById('moreMenu');
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        const navLinks = document.querySelectorAll('.nav-link, .footer-links a, .top-header-links a, .more-menu a');
-        const pages = document.querySelectorAll('.page');
-        const dropdowns = document.querySelectorAll('.dropdown');
-        const searchResultsPage = document.getElementById('searchResultsPage');
-        const searchQueryDisplay = document.getElementById('searchQueryDisplay');
-        const noResultsMessage = document.getElementById('noResultsMessage');
-
-        // Mobile Menu Toggle
+        
         mobileMenuBtn.addEventListener('click', () => {
             mainNav.classList.toggle('active');
             mobileMenuBtn.innerHTML = mainNav.classList.contains('active') 
                 ? '<i class="fas fa-times"></i>' 
                 : '<i class="fas fa-bars"></i>';
-            
-            // Close search and more menus when mobile menu opens
-            searchBox.classList.remove('active');
-            moreMenu.classList.remove('active');
         });
-
-        // Search Icon Functionality
+        
+        // Search Box Toggle
+        const searchIcon = document.getElementById('searchIcon');
+        const searchBox = document.getElementById('searchBox');
+        
         searchIcon.addEventListener('click', () => {
             searchBox.classList.toggle('active');
-            moreMenu.classList.remove('active');
-            
-            // Focus on search input when search box opens
-            if (searchBox.classList.contains('active')) {
-                setTimeout(() => {
-                    searchInput.focus();
-                }, 100);
-            }
         });
-
-        // More Menu (3 dots) Functionality
-        moreMenuBtn.addEventListener('click', () => {
-            moreMenu.classList.toggle('active');
-            searchBox.classList.remove('active');
-        });
-
-        // Dark Mode Toggle
-        let darkMode = false;
-        darkModeToggle.addEventListener('click', (e) => {
-            e.preventDefault();
-            darkMode = !darkMode;
-            
-            if (darkMode) {
-                document.body.style.backgroundColor = '#1a1a1a';
-                document.body.style.color = '#f0f0f0';
-                document.querySelectorAll('.feature-card, .search-page-content, .more-page').forEach(el => {
-                    el.style.backgroundColor = '#2d2d2d';
-                    el.style.color = '#f0f0f0';
-                });
-                document.querySelectorAll('h1, h2, h3, h4').forEach(el => {
-                    el.style.color = '#4a90e2';
-                });
-                darkModeToggle.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
-            } else {
-                document.body.style.backgroundColor = '';
-                document.body.style.color = '';
-                document.querySelectorAll('.feature-card, .search-page-content, .more-page').forEach(el => {
-                    el.style.backgroundColor = '';
-                    el.style.color = '';
-                });
-                document.querySelectorAll('h1, h2, h3, h4').forEach(el => {
-                    el.style.color = '';
-                });
-                darkModeToggle.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
-            }
-            
-            moreMenu.classList.remove('active');
-        });
-
-        // Search Functionality
-        function performSearch(query) {
-            if (!query.trim()) {
-                quickSearchResults.innerHTML = '<div class="search-result-item"><p>Type something to search...</p></div>';
-                return;
-            }
-
-            const filteredResults = searchData.filter(item => {
-                return item.title.toLowerCase().includes(query.toLowerCase()) || 
-                       item.description.toLowerCase().includes(query.toLowerCase()) ||
-                       item.category.toLowerCase().includes(query.toLowerCase());
-            });
-
-            quickSearchResults.innerHTML = '';
-
-            if (filteredResults.length === 0) {
-                quickSearchResults.innerHTML = '<div class="search-result-item"><p>No results found. Try a different search term.</p></div>';
-            } else {
-                filteredResults.slice(0, 5).forEach(result => {
-                    const resultItem = document.createElement('div');
-                    resultItem.className = 'search-result-item';
-                    resultItem.innerHTML = `
-                        <h4>${result.title}</h4>
-                        <p>${result.description}</p>
-                        <small style="color: var(--accent);">${result.category}</small>
-                    `;
-                    resultItem.addEventListener('click', () => {
-                        // Navigate to the appropriate page
-                        navigateToPage(result.page);
-                        searchBox.classList.remove('active');
-                    });
-                    quickSearchResults.appendChild(resultItem);
-                });
-
-                if (filteredResults.length > 5) {
-                    const viewAllItem = document.createElement('div');
-                    viewAllItem.className = 'search-result-item';
-                    viewAllItem.innerHTML = `<p style="text-align: center; color: var(--primary); font-weight: bold;">View all ${filteredResults.length} results</p>`;
-                    viewAllItem.addEventListener('click', () => {
-                        showSearchResultsPage(query, filteredResults);
-                        searchBox.classList.remove('active');
-                    });
-                    quickSearchResults.appendChild(viewAllItem);
-                }
-            }
-        }
-
-        // Show full search results page
-        function showSearchResultsPage(query, results) {
-            // Update search query display
-            searchQueryDisplay.textContent = `"${query}"`;
-            
-            // Clear previous results
-            searchResultsPage.innerHTML = '';
-            
-            if (results.length === 0) {
-                noResultsMessage.style.display = 'block';
-                searchResultsPage.appendChild(noResultsMessage);
-            } else {
-                noResultsMessage.style.display = 'none';
-                
-                results.forEach(result => {
-                    const resultCard = document.createElement('div');
-                    resultCard.className = 'search-result-card';
-                    resultCard.innerHTML = `
-                        <span class="category">${result.category}</span>
-                        <h3>${result.title}</h3>
-                        <p>${result.description}</p>
-                        <a href="#" data-page="${result.page}" class="btn" style="margin-top: 10px; padding: 8px 20px; font-size: 0.9rem;">View</a>
-                    `;
-                    
-                    // Add click event to the view button
-                    const viewBtn = resultCard.querySelector('.btn');
-                    viewBtn.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        navigateToPage(result.page);
-                    });
-                    
-                    searchResultsPage.appendChild(resultCard);
-                });
-            }
-            
-            // Navigate to search results page
-            navigateToPage('search-results');
-        }
-
-        // Search input event listener
-        searchInput.addEventListener('input', () => {
-            performSearch(searchInput.value);
-        });
-
-        // Search on Enter key
-        searchInput.addEventListener('keyup', (e) => {
-            if (e.key === 'Enter') {
-                const query = searchInput.value.trim();
-                if (query) {
-                    const filteredResults = searchData.filter(item => {
-                        return item.title.toLowerCase().includes(query.toLowerCase()) || 
-                               item.description.toLowerCase().includes(query.toLowerCase()) ||
-                               item.category.toLowerCase().includes(query.toLowerCase());
-                    });
-                    
-                    showSearchResultsPage(query, filteredResults);
-                    searchBox.classList.remove('active');
-                }
-            }
-        });
-
-        // Close search and more menus when clicking outside
+        
+        // Close search box when clicking outside
         document.addEventListener('click', (e) => {
             if (!searchBox.contains(e.target) && !searchIcon.contains(e.target)) {
                 searchBox.classList.remove('active');
             }
-            
-            if (!moreMenu.contains(e.target) && !moreMenuBtn.contains(e.target)) {
-                moreMenu.classList.remove('active');
-            }
-        });
-
-        // Page Navigation Function
-        function navigateToPage(pageId) {
-            // Hide all pages
-            pages.forEach(page => {
-                page.classList.remove('active');
-            });
-            
-            // Show selected page
-            document.getElementById(pageId).classList.add('active');
-            
-            // Update active nav link
-            document.querySelectorAll('.nav-link').forEach(navLink => {
-                navLink.classList.remove('active');
-                
-                // Check if this link corresponds to the active page
-                if (navLink.getAttribute('data-page') === pageId) {
-                    navLink.classList.add('active');
-                }
-                
-                // Handle dropdown parent activation
-                const parentDropdown = navLink.closest('.dropdown');
-                if (parentDropdown && navLink.classList.contains('active')) {
-                    parentDropdown.querySelector('a').classList.add('active');
-                }
-            });
-            
-            // Close mobile menu if open
-            if (window.innerWidth <= 768) {
-                mainNav.classList.remove('active');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                
-                // Close any open dropdowns on mobile
-                dropdowns.forEach(dropdown => {
-                    dropdown.classList.remove('active');
-                });
-            }
-            
-            // Close search and more menus
-            searchBox.classList.remove('active');
-            moreMenu.classList.remove('active');
-            
-            // Scroll to top
-            window.scrollTo(0, 0);
-        }
-
-        // Page Navigation Event Listeners
-        navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                
-                // Get the page to show
-                const pageId = link.getAttribute('data-page');
-                
-                // Navigate to the page
-                navigateToPage(pageId);
-            });
-        });
-
-        // Handle dropdown clicks on mobile
-        if (window.innerWidth <= 768) {
-            dropdowns.forEach(dropdown => {
-                const dropdownLink = dropdown.querySelector('a');
-                
-                dropdownLink.addEventListener('click', (e) => {
-                    if (!dropdownLink.getAttribute('data-page')) {
-                        e.preventDefault();
-                        dropdown.classList.toggle('active');
-                    }
-                });
-            });
-        }
-
-        // Contact Form Submission
-        const contactForm = document.getElementById('contactForm');
-        
-        if (contactForm) {
-            contactForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                
-                // In a real application, you would send this data to a server
-                // For this example, we'll just show an alert
-                alert('Thank you! Your message has been sent. We\'ll get back to you soon.');
-                
-                // Reset form
-                contactForm.reset();
-            });
-        }
-
-        // Initialize page with Home active
-        document.addEventListener('DOMContentLoaded', () => {
-            // Ensure home page is active
-            pages.forEach(page => {
-                page.classList.remove('active');
-            });
-            document.getElementById('home').classList.add('active');
-            
-            // Ensure home nav link is active
-            document.querySelectorAll('.nav-link').forEach(navLink => {
-                navLink.classList.remove('active');
-            });
-            document.querySelector('[data-page="home"]').classList.add('active');
-            
-            // Initialize search with empty results message
-            quickSearchResults.innerHTML = '<div class="search-result-item"><p>Type something to search...</p></div>';
         });
     </script>
 </body>
