@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Coming Soon - Sumit Creator</title>
+    <title>Sumit Creator - Content Platform</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -27,9 +27,6 @@
             background-color: #f5f7fa;
             color: var(--dark);
             line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
         }
         
         .container {
@@ -39,7 +36,7 @@
             padding: 0 20px;
         }
         
-        /* Header */
+        /* Header & Navigation */
         header {
             background-color: white;
             box-shadow: var(--shadow);
@@ -56,6 +53,13 @@
         }
         
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo a {
+            text-decoration: none !important;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -120,154 +124,40 @@
             cursor: pointer;
         }
         
-        /* Main Coming Soon Content */
+        /* Main Content */
         main {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 60px 0;
+            min-height: calc(100vh - 200px);
+            padding: 40px 0;
         }
         
-        .coming-soon-container {
-            text-align: center;
-            max-width: 800px;
+        .hero {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
             padding: 60px 40px;
-            background-color: white;
-            border-radius: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 50px;
             box-shadow: var(--shadow);
-            position: relative;
-            overflow: hidden;
         }
         
-        .coming-soon-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, var(--primary), var(--accent), var(--secondary));
-        }
-        
-        .coming-soon-icon {
-            font-size: 5rem;
-            color: var(--primary);
-            margin-bottom: 30px;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
-        .coming-soon-title {
-            font-size: 3.5rem;
-            color: var(--primary);
+        .hero h1 {
+            font-size: 2.8rem;
             margin-bottom: 20px;
-            font-weight: 800;
         }
         
-        .coming-soon-subtitle {
-            font-size: 1.5rem;
-            color: var(--secondary);
-            margin-bottom: 30px;
-            font-weight: 600;
-        }
-        
-        .coming-soon-message {
+        .hero p {
             font-size: 1.2rem;
-            color: var(--gray);
-            margin-bottom: 40px;
-            line-height: 1.8;
-            max-width: 600px;
+            margin-bottom: 30px;
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
-        }
-        
-        .countdown-container {
-            margin: 40px 0;
-            padding: 30px;
-            background: linear-gradient(135deg, rgba(74, 111, 165, 0.1), rgba(255, 107, 107, 0.1));
-            border-radius: 15px;
-        }
-        
-        .countdown-title {
-            font-size: 1.3rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-        
-        .countdown {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .countdown-item {
-            background-color: white;
-            padding: 20px 15px;
-            border-radius: 10px;
-            min-width: 100px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        
-        .countdown-value {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            display: block;
-            line-height: 1;
-        }
-        
-        .countdown-label {
-            font-size: 0.9rem;
-            color: var(--gray);
-            margin-top: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .notify-form {
-            max-width: 500px;
-            margin: 40px auto 0;
-        }
-        
-        .form-title {
-            font-size: 1.3rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-        
-        .notify-input-group {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-        
-        .notify-input {
-            flex: 1;
-            padding: 15px 20px;
-            border: 2px solid #ddd;
-            border-radius: 50px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-        
-        .notify-input:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(74, 111, 165, 0.2);
         }
         
         .btn {
             display: inline-block;
             background-color: var(--accent);
             color: white;
-            padding: 15px 35px;
+            padding: 12px 30px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
@@ -275,7 +165,6 @@
             cursor: pointer;
             transition: all 0.3s ease;
             font-size: 1rem;
-            white-space: nowrap;
         }
         
         .btn:hover {
@@ -286,6 +175,7 @@
         
         .btn-secondary {
             background-color: var(--primary);
+            margin-left: 10px;
         }
         
         .btn-secondary:hover {
@@ -293,88 +183,142 @@
             box-shadow: 0 6px 15px rgba(74, 111, 165, 0.3);
         }
         
-        .social-share {
-            margin-top: 40px;
-        }
-        
-        .share-title {
-            font-size: 1.2rem;
-            color: var(--gray);
-            margin-bottom: 20px;
-        }
-        
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-        
-        .social-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            background-color: #f8f9fa;
-            border-radius: 50%;
-            color: var(--primary);
-            text-decoration: none;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-        }
-        
-        .social-icon:hover {
-            background-color: var(--primary);
-            color: white;
-            transform: translateY(-5px);
-        }
-        
-        .blog-preview {
-            margin-top: 50px;
-            padding-top: 40px;
-            border-top: 2px dashed #eee;
-        }
-        
-        .preview-title {
-            font-size: 1.5rem;
-            color: var(--primary);
-            margin-bottom: 30px;
-        }
-        
-        .preview-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 25px;
-        }
-        
-        .preview-card {
-            background-color: #f8f9fa;
+        /* Post Content Area */
+        .post-container {
+            background-color: white;
+            padding: 40px;
             border-radius: 10px;
-            padding: 25px;
-            text-align: left;
-            transition: transform 0.3s ease;
-            border-left: 4px solid var(--primary);
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
         }
         
-        .preview-card:hover {
-            transform: translateY(-5px);
+        .post-header {
+            text-align: center;
+            margin-bottom: 40px;
         }
         
-        .preview-card i {
-            font-size: 2rem;
+        .post-header h1 {
+            font-size: 2.5rem;
             color: var(--primary);
             margin-bottom: 15px;
         }
         
-        .preview-card h3 {
-            color: var(--dark);
+        .post-meta {
+            color: var(--gray);
+            font-size: 0.9rem;
             margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .post-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .post-content h2 {
+            color: var(--primary);
+            margin: 30px 0 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(74, 111, 165, 0.1);
+        }
+        
+        .post-content h3 {
+            color: var(--secondary);
+            margin: 25px 0 10px;
             font-size: 1.2rem;
         }
         
-        .preview-card p {
+        .post-content p {
+            margin-bottom: 20px;
+        }
+        
+        .post-content ul, .post-content ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .post-content li {
+            margin-bottom: 10px;
+        }
+        
+        .prompt-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--primary);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            overflow-x: auto;
+        }
+        
+        .note {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        /* Featured Posts */
+        .featured-posts {
+            margin-top: 60px;
+        }
+        
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .post-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .post-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .post-card-img {
+            height: 180px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+        
+        .post-card-content {
+            padding: 25px;
+        }
+        
+        .post-card-content h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .post-card-content p {
             color: var(--gray);
-            font-size: 0.95rem;
+            margin-bottom: 20px;
+            min-height: 60px;
+        }
+        
+        .post-card-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--gray);
+            font-size: 0.85rem;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
         }
         
         /* Footer */
@@ -382,7 +326,6 @@
             background-color: var(--dark);
             color: white;
             padding: 40px 0 20px;
-            margin-top: auto;
         }
         
         .footer-content {
@@ -455,22 +398,13 @@
             font-size: 0.9rem;
         }
         
-        /* Responsive */
+        /* Responsive Design */
         @media (max-width: 992px) {
-            .coming-soon-title {
-                font-size: 2.8rem;
+            .hero h1 {
+                font-size: 2.2rem;
             }
             
-            .coming-soon-subtitle {
-                font-size: 1.3rem;
-            }
-            
-            .countdown-item {
-                min-width: 80px;
-                padding: 15px 10px;
-            }
-            
-            .countdown-value {
+            .post-header h1 {
                 font-size: 2rem;
             }
         }
@@ -514,33 +448,31 @@
                 right: 20px;
             }
             
-            .coming-soon-container {
+            .hero {
                 padding: 40px 20px;
             }
             
-            .coming-soon-title {
-                font-size: 2.2rem;
+            .hero h1 {
+                font-size: 1.8rem;
             }
             
-            .coming-soon-icon {
-                font-size: 4rem;
+            .post-container {
+                padding: 25px;
             }
             
-            .notify-input-group {
-                flex-direction: column;
-            }
-            
-            .btn {
-                width: 100%;
-            }
-            
-            .preview-grid {
+            .posts-grid {
                 grid-template-columns: 1fr;
             }
             
             .footer-column {
                 min-width: 100%;
                 padding-right: 0;
+            }
+            
+            .btn-secondary {
+                margin-left: 0;
+                margin-top: 10px;
+                display: block;
             }
         }
         
@@ -549,25 +481,16 @@
                 padding: 0 15px;
             }
             
-            .coming-soon-title {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            
+            .post-header h1 {
                 font-size: 1.8rem;
             }
             
-            .coming-soon-subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .countdown {
-                gap: 10px;
-            }
-            
-            .countdown-item {
-                min-width: 70px;
-                padding: 12px 8px;
-            }
-            
-            .countdown-value {
-                font-size: 1.8rem;
+            .post-container {
+                padding: 20px;
             }
         }
     </style>
@@ -578,8 +501,10 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <a href="https://saeditz.in"><i class="logo-icon">SA</i></a>
-                    <a href="https://saeditz.in"><i class="logo-text">Sumit <span>Creator</i></a>
+                    <a href="https://saeditz.in">
+                        <i class="logo-icon">SC</i>
+                        <span class="logo-text">Sumit <span>Creator</span></span>
+                    </a>
                 </div>
                 
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -600,107 +525,108 @@
         </div>
     </header>
 
-    <!-- Main Coming Soon Content -->
+    <!-- Main Content -->
     <main>
         <div class="container">
-            <div class="coming-soon-container">
-                <div class="coming-soon-icon">
-                    <i class="fas fa-blog"></i>
-                </div>
-                
-                <h1 class="coming-soon-title">Blog Coming Soon!</h1>
-                <h2 class="coming-soon-subtitle">Something amazing is on the way</h2>
-                
-                <p class="coming-soon-message">
-                    We're working hard to bring you an incredible blog filled with tech tips, tutorials, 
-                    creative insights, and industry news. Our blog will be your go-to resource for all 
-                    things related to APKs, AI tools, editing software, and creative technology.
-                </p>
-                
-                <div class="countdown-container">
-                    <h3 class="countdown-title">Launching In</h3>
-                    <div class="countdown" id="countdown">
-                        <div class="countdown-item">
-                            <span class="countdown-value" id="days">00</span>
-                            <span class="countdown-label">Days</span>
-                        </div>
-                        <div class="countdown-item">
-                            <span class="countdown-value" id="hours">00</span>
-                            <span class="countdown-label">Hours</span>
-                        </div>
-                        <div class="countdown-item">
-                            <span class="countdown-value" id="minutes">00</span>
-                            <span class="countdown-label">Minutes</span>
-                        </div>
-                        <div class="countdown-item">
-                            <span class="countdown-value" id="seconds">00</span>
-                            <span class="countdown-label">Seconds</span>
-                        </div>
+            <!-- Hero Section -->
+            <div class="hero">
+                <h1>Welcome to Sumit Creator</h1>
+                <p>Your ultimate destination for tech tutorials, AI tools, creative content, and digital innovation. Explore, learn, and create with us.</p>
+                <a href="#" class="btn">Explore Content</a>
+                <a href="#" class="btn btn-secondary">Subscribe</a>
+            </div>
+            
+            <!-- Recent Post -->
+            <div class="post-container">
+                <div class="post-header">
+                    <h1>ChatGPT और Gemini Ghost AI फोटो एडिटिंग प्रॉम्प्ट्स</h1>
+                    <div class="post-meta">
+                        <span><i class="far fa-calendar"></i> January 15, 2024</span>
+                        <span><i class="far fa-user"></i> Sumit Creator</span>
+                        <span><i class="far fa-clock"></i> 5 min read</span>
                     </div>
                 </div>
                 
-                <div class="notify-form">
-                    <h3 class="form-title">Get Notified When We Launch</h3>
-                    <div class="notify-input-group">
-                        <input type="email" class="notify-input" placeholder="Enter your email address" id="emailInput">
-                        <button class="btn" onclick="subscribe()">Notify Me</button>
+                <div class="post-content">
+                    <p>दोस्तों, सोशल मीडिया पर एक नया और अद्भुत ट्रेंड वायरल हो रहा है। इस ट्रेंड में लोग अपनी सामान्य सेल्फी और तस्वीरों को डरावनी और हॉरर थीम वाली सिनेमाई छवियों में बदल रहे हैं। यह ट्रेंड इंस्टाग्राम रील्स और यूट्यूब शॉर्ट्स पर हर जगह देखा जा रहा है, जिसमें डार्क मूडी और फंतासी-इंस्पायर्ड लुक दिखाई दे रहे हैं।</p>
+                    
+                    <h2>Ghost AI फोटो प्रॉम्प्ट</h2>
+                    
+                    <div class="prompt-box">prompt:- Transform this mirror selfie into a dark, cinematic fantasy scene. Keep the person exactly the same same face, pose, outfit, lighting, and background. Add a shadowy, smoke-like demonic entity emerging from behind the person’s back. The entity should be made of swirling black smoke, semi-transparent, with glowing white eyes. The smoke wraps around the body and flows down to the floor naturally, blending with the environment. Maintain realistic shadows, reflections, and depth so the creature feels part of the scene. Dark, moody atmosphere, high contrast, cinematic lighting, ultra-realistic, 4K quality. No change to facial features, clothing, or camera angle. The background should also be related to ghosts, such as a black and white effect.</div>
+                    
+                    <div class="prompt-box">prompt:- Transform this photo into a dark, cinematic ghost fantasy scene. Keep the person’s face, pose, outfit, lighting, and camera angle unchanged. Add a semi-transparent shadow entity made of swirling black smoke with glowing white eyes emerging from behind. Let the smoke wrap naturally around the body and blend into the floor. Use a black-and-white ghost-themed background, high contrast, moody cinematic lighting, ultra-realistic, 4K quality.</div>
+                    
+                    <h2>बेहतर फोटो कौन बनाएगा: Gemini या ChatGPT?</h2>
+                    
+                    <p>देखिए, आप शायद पहले से ही जानते हैं कि Gemini और ChatGPT दोनों ही शक्तिशाली AI टूल हैं। हालांकि, बेहतर फोटो के परिणाम आपके उपयोग के मामले और प्रॉम्प्ट लिखने की शैली पर निर्भर करते हैं। यदि आप तेज, अत्यधिक विस्तृत और यथार्थवादी छवि आउटपुट चाहते हैं, तो आप Google Gemini का उपयोग कर सकते हैं। क्योंकि Google Gemini छवियां बहुत तेजी से जनरेट करता है। यह टूल विशेष रूप से उपयोगी है जब आप अपनी सेल्फी को सीधे अपलोड करके त्वरित रूपांतरण चाहते हैं।</p>
+                    
+                    <h2>प्रॉम्प्ट्स का उपयोग करके Ghost AI फोटो एडिटिंग कैसे बनाएं?</h2>
+                    
+                    <p>एक बार जब आपको कहीं से भी प्रॉम्प्ट मिल जाता है, तो फोटो बनाना अविश्वसनीय रूप से आसान हो जाता है। आप छवि जनरेट करने के लिए Google Gemini या ChatGPT का उपयोग कर सकते हैं। हमने ChatGPT और Gemini दोनों का उपयोग करके घोस्ट फोटो बनाने की कोशिश की, लेकिन सबसे अच्छे परिणाम ChatGPT के साथ मिले। हालांकि छवि जनरेट करने में थोड़ा अधिक समय लगता है, परिणाम काफी बेहतर थे।</p>
+                    
+                    <ul>
+                        <li>सबसे पहले, ChatGPT ऐप या वेबसाइट पर जाएं।</li>
+                        <li>वहां अपने Gmail ID से लॉग इन करें।</li>
+                        <li>बाएं कोने में प्लस विकल्प पर क्लिक करें, फिर फोटो विकल्प पर क्लिक करें।</li>
+                        <li>अपनी गैलरी से वह फोटो जोड़ें जिसमें आप फोटो लगा रहे हैं।</li>
+                        <li>अब, हमारे द्वारा दिए गए प्रॉम्प्ट को मैसेज बॉक्स में दर्ज करें।</li>
+                        <li>कृपया एक पल प्रतीक्षा करें, आपकी फोटो में भूत दिखाई देगा।</li>
+                        <li>कुछ दिन प्रतीक्षा करने के बाद, आपकी फोटो तैयार हो जाएगी।</li>
+                        <li>अब अपनी फोटो पर क्लिक करें और उसे सेव करें।</li>
+                    </ul>
+                    
+                    <div class="note">
+                        <strong>नोट:</strong> यह लेख सिर्फ जानकारी के लिए है। AI टूल्स का उपयोग करते समय हमेशा उनकी सेवा शर्तों और गोपनीयता नीति की जांच करें।
                     </div>
-                    <p style="color: var(--gray); font-size: 0.9rem; margin-top: 10px;">
-                        We'll send you one email when the blog is live. No spam, promise!
-                    </p>
                 </div>
+            </div>
+            
+            <!-- Featured Posts -->
+            <div class="featured-posts">
+                <h2 style="text-align: center; color: var(--primary); margin-bottom: 30px; font-size: 2rem;">More Articles</h2>
                 
-                <div class="social-share">
-                    <h3 class="share-title">Spread the Word</h3>
-                    <div class="social-icons">
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="blog-preview">
-                    <h3 class="preview-title">What to Expect</h3>
-                    <div class="preview-grid">
-                        <div class="preview-card">
+                <div class="posts-grid">
+                    <div class="post-card">
+                        <div class="post-card-img">
                             <i class="fas fa-mobile-alt"></i>
-                            <h3>APK Guides</h3>
-                            <p>Step-by-step tutorials for installing and using APK files safely and effectively.</p>
                         </div>
-                        <div class="preview-card">
-                            <i class="fas fa-robot"></i>
-                            <h3>AI Tools</h3>
-                            <p>Reviews and guides for the latest AI-powered editing and creative tools.</p>
-                        </div>
-                        <div class="preview-card">
-                            <i class="fas fa-code"></i>
-                            <h3>Tech Tutorials</h3>
-                            <p>Learn new skills with our easy-to-follow technology tutorials and guides.</p>
-                        </div>
-                        <div class="preview-card">
-                            <i class="fas fa-lightbulb"></i>
-                            <h3>Creative Tips</h3>
-                            <p>Inspiration and tips for creators, designers, and digital artists.</p>
+                        <div class="post-card-content">
+                            <h3>Best APK Sources 2024</h3>
+                            <p>Discover the safest and most reliable sources for downloading APK files for Android applications.</p>
+                            <div class="post-card-meta">
+                                <span><i class="far fa-calendar"></i> Jan 10, 2024</span>
+                                <span><i class="far fa-eye"></i> 1.2K views</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                
-                <div style="margin-top: 40px;">
-                    <a href="index.html" class="btn btn-secondary">
-                        <i class="fas fa-arrow-left"></i> Back to Home
-                    </a>
+                    
+                    <div class="post-card">
+                        <div class="post-card-img">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="post-card-content">
+                            <h3>AI Tools for Content Creation</h3>
+                            <p>Explore the latest AI-powered tools that are revolutionizing content creation and editing workflows.</p>
+                            <div class="post-card-meta">
+                                <span><i class="far fa-calendar"></i> Jan 5, 2024</span>
+                                <span><i class="far fa-eye"></i> 2.5K views</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="post-card">
+                        <div class="post-card-img">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="post-card-content">
+                            <h3>Web Development Trends 2024</h3>
+                            <p>Stay updated with the latest trends and technologies in web development for the coming year.</p>
+                            <div class="post-card-meta">
+                                <span><i class="far fa-calendar"></i> Dec 28, 2023</span>
+                                <span><i class="far fa-eye"></i> 3.1K views</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -731,7 +657,7 @@
                 </div>
                 
                 <div class="footer-column">
-                    <h3>Services</h3>
+                    <h3>Categories</h3>
                     <ul class="footer-links">
                         <li><a href="edition.html" target="_blank">Editing Tools</a></li>
                         <li><a href="ai-edit.html" target="_blank">AI Editing</a></li>
@@ -740,18 +666,18 @@
                 </div>
                 
                 <div class="footer-column">
-                    <h3>Legal</h3>
+                    <h3>Contact Us</h3>
                     <ul class="footer-links">
-                        <li><a href="privacy.html" target="_blank">Privacy Policy</a></li>
-                        <li><a href="terms.html" target="_blank">Terms & Conditions</a></li>
-                        <li><a href="about.html" target="_blank">About Us</a></li>
-                        <li><a href="contact.html" target="_blank">Contact Us</a></li>
+                        <li><a href="#">sumitcreator143@gmail.com</a></li>
+                        <li><a href="#">+91 62070 79956</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>&copy; 2023 Sumit Creator. All rights reserved. | Blog Launching Soon!</p>
+                <p>&copy; 2024 Sumit Creator. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -768,105 +694,20 @@
                 : '<i class="fas fa-bars"></i>';
         });
         
-        // Countdown Timer (Set launch date to 5 days from now)
-        const launchDate = new Date();
-        launchDate.setDate(launchDate.getDate() + 5); // 5 days from now
-        
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = launchDate - now;
-            
-            // Calculate days, hours, minutes, seconds
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            
-            // Update display
-            document.getElementById('days').textContent = days.toString().padStart(2, '0');
-            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-            
-            // If countdown is over
-            if (distance < 0) {
-                clearInterval(countdownInterval);
-                document.getElementById('countdown').innerHTML = "<h3 style='color: var(--accent);'>Blog is Live Now!</h3>";
-            }
-        }
-        
-        // Initialize countdown
-        updateCountdown();
-        const countdownInterval = setInterval(updateCountdown, 1000);
-        
-        // Email Subscription
-        function subscribe() {
-            const emailInput = document.getElementById('emailInput');
-            const email = emailInput.value.trim();
-            
-            if (!email) {
-                alert('Please enter your email address');
-                emailInput.focus();
-                return;
-            }
-            
-            // Simple email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert('Please enter a valid email address');
-                emailInput.focus();
-                return;
-            }
-            
-            // In a real application, this would send data to a server
-            // For this example, we'll just show a confirmation message
-            alert(`Thank you! We've added ${email} to our notification list. We'll email you when our blog launches.`);
-            
-            // Clear the input
-            emailInput.value = '';
-            
-            // Change button text temporarily
-            const button = document.querySelector('.notify-input-group .btn');
-            const originalText = button.innerHTML;
-            button.innerHTML = '<i class="fas fa-check"></i> Subscribed!';
-            button.style.backgroundColor = '#4CAF50';
-            
-            setTimeout(() => {
-                button.innerHTML = originalText;
-                button.style.backgroundColor = '';
-            }, 3000);
-        }
-        
-        // Enter key support for email input
-        document.getElementById('emailInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                subscribe();
-            }
-        });
-        
-        // Social share functions
-        document.querySelectorAll('.social-icon').forEach(icon => {
-            icon.addEventListener('click', function(e) {
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                const platform = this.querySelector('i').className;
                 
-                let shareUrl = '';
-                let shareText = 'Check out the upcoming blog from Sumit Creator! Tech tips, tutorials, and creative insights coming soon.';
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
                 
-                if (platform.includes('twitter')) {
-                    shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(window.location.href)}`;
-                } else if (platform.includes('facebook')) {
-                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`;
-                } else if (platform.includes('linkedin')) {
-                    shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`;
-                } else if (platform.includes('whatsapp')) {
-                    shareUrl = `https://wa.me/?text=${encodeURIComponent(shareText + ' ' + window.location.href)}`;
-                } else if (platform.includes('envelope')) {
-                    shareUrl = `mailto:?subject=${encodeURIComponent('Sumit Creator Blog Coming Soon')}&body=${encodeURIComponent(shareText + '\n\n' + window.location.href)}`;
-                }
-                
-                if (shareUrl) {
-                    window.open(shareUrl, '_blank', 'width=600,height=400');
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
                 }
             });
         });
