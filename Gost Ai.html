@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sumit Creator - Content Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #4a6fa5;
+            --secondary: #166088;
+            --accent: #ff6b6b;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --gray: #6c757d;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo a {
+            text-decoration: none !important;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            background-color: var(--primary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo-text span {
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            padding: 8px 5px;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        nav ul li a.active {
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+        
+        /* Main Content */
+        main {
+            min-height: calc(100vh - 200px);
+            padding: 40px 0;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 60px 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 50px;
+            box-shadow: var(--shadow);
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            background-color: #ff5252;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(255, 107, 107, 0.3);
+        }
+        
+        .btn-secondary {
+            background-color: var(--primary);
+            margin-left: 10px;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--secondary);
+            box-shadow: 0 6px 15px rgba(74, 111, 165, 0.3);
+        }
+        
+        /* Post Content Area */
+        .post-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+        }
+        
+        .post-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .post-header h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .post-meta {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .post-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .post-content h2 {
+            color: var(--primary);
+            margin: 30px 0 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(74, 111, 165, 0.1);
+        }
+        
+        .post-content h3 {
+            color: var(--secondary);
+            margin: 25px 0 10px;
+            font-size: 1.2rem;
+        }
+        
+        .post-content p {
+            margin-bottom: 20px;
+        }
+        
+        .post-content ul, .post-content ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .post-content li {
+            margin-bottom: 10px;
+        }
+        
+        .prompt-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--primary);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            overflow-x: auto;
+        }
+        
+        .note {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        /* Featured Posts */
+        .featured-posts {
+            margin-top: 60px;
+        }
+        
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .post-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .post-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .post-card-img {
+            height: 180px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+        
+        .post-card-content {
+            padding: 25px;
+        }
+        
+        .post-card-content h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .post-card-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            min-height: 60px;
+        }
+        
+        .post-card-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--gray);
+            font-size: 0.85rem;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+            padding-right: 20px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #b0b7c3;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #b0b7c3;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .post-header h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            nav {
+                width: 100%;
+                margin-top: 15px;
+                display: none;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            nav ul li {
+                margin-left: 0;
+                margin-bottom: 10px;
+            }
+            
+            nav ul li a {
+                display: block;
+                padding: 10px 0;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+            
+            .hero {
+                padding: 40px 20px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .post-container {
+                padding: 25px;
+            }
+            
+            .posts-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-column {
+                min-width: 100%;
+                padding-right: 0;
+            }
+            
+            .btn-secondary {
+                margin-left: 0;
+                margin-top: 10px;
+                display: block;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            
+            .post-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .post-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="https://saeditz.in">
+                        <i class="logo-icon">SA</i>
+                        <span class="logo-text">Sumit <span>Creator</span></span>
+                    </a>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <nav id="mainNav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="sapk.html">SApk</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="edition.html">Editing</a></li>
+                        <li><a href="ai-edit.html">AI Edit</a></li>
+                        <li><a href="contact.html" target="_blank">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <!-- Hero Section -->
+            <div class="hero">
+                <h1>Welcome to Sumit Creator</h1>
+            </div>
+            
+            <!-- Recent Post -->
+            <div class="post-container">
+                <div class="post-header">
+                    <h1>ChatGPT और Gemini Ghost AI फोटो एडिटिंग प्रॉम्प्ट्स</h1>
+                    <div class="post-meta">
+                        <span><i class="far fa-calendar"></i> January 15, 2024</span>
+                        <span><i class="far fa-user"></i> Sumit Creator</span>
+                        <span><i class="far fa-clock"></i> 5 min read</span>
+                    </div>
+                </div>
+                
+                <div class="post-content">
+                    <p>दोस्तों, सोशल मीडिया पर एक नया और अद्भुत ट्रेंड वायरल हो रहा है। इस ट्रेंड में लोग अपनी सामान्य सेल्फी और तस्वीरों को डरावनी और हॉरर थीम वाली सिनेमाई छवियों में बदल रहे हैं। यह ट्रेंड इंस्टाग्राम रील्स और यूट्यूब शॉर्ट्स पर हर जगह देखा जा रहा है, जिसमें डार्क मूडी और फंतासी-इंस्पायर्ड लुक दिखाई दे रहे हैं।</p>
+                    
+                    <h2>Ghost AI फोटो प्रॉम्प्ट</h2>
+                    
+                    <div class="prompt-box">prompt:- Transform this mirror selfie into a dark, cinematic fantasy scene. Keep the person exactly the same same face, pose, outfit, lighting, and background. Add a shadowy, smoke-like demonic entity emerging from behind the person’s back. The entity should be made of swirling black smoke, semi-transparent, with glowing white eyes. The smoke wraps around the body and flows down to the floor naturally, blending with the environment. Maintain realistic shadows, reflections, and depth so the creature feels part of the scene. Dark, moody atmosphere, high contrast, cinematic lighting, ultra-realistic, 4K quality. No change to facial features, clothing, or camera angle. The background should also be related to ghosts, such as a black and white effect.</div>
+                    
+                    <div class="prompt-box">prompt:- Transform this photo into a dark, cinematic ghost fantasy scene. Keep the person’s face, pose, outfit, lighting, and camera angle unchanged. Add a semi-transparent shadow entity made of swirling black smoke with glowing white eyes emerging from behind. Let the smoke wrap naturally around the body and blend into the floor. Use a black-and-white ghost-themed background, high contrast, moody cinematic lighting, ultra-realistic, 4K quality.</div>
+                    
+                    <h2>बेहतर फोटो कौन बनाएगा: Gemini या ChatGPT?</h2>
+                    
+                    <p>देखिए, आप शायद पहले से ही जानते हैं कि Gemini और ChatGPT दोनों ही शक्तिशाली AI टूल हैं। हालांकि, बेहतर फोटो के परिणाम आपके उपयोग के मामले और प्रॉम्प्ट लिखने की शैली पर निर्भर करते हैं। यदि आप तेज, अत्यधिक विस्तृत और यथार्थवादी छवि आउटपुट चाहते हैं, तो आप Google Gemini का उपयोग कर सकते हैं। क्योंकि Google Gemini छवियां बहुत तेजी से जनरेट करता है। यह टूल विशेष रूप से उपयोगी है जब आप अपनी सेल्फी को सीधे अपलोड करके त्वरित रूपांतरण चाहते हैं।</p>
+                    
+                    <h2>प्रॉम्प्ट्स का उपयोग करके Ghost AI फोटो एडिटिंग कैसे बनाएं?</h2>
+                    
+                    <p>एक बार जब आपको कहीं से भी प्रॉम्प्ट मिल जाता है, तो फोटो बनाना अविश्वसनीय रूप से आसान हो जाता है। आप छवि जनरेट करने के लिए Google Gemini या ChatGPT का उपयोग कर सकते हैं। हमने ChatGPT और Gemini दोनों का उपयोग करके घोस्ट फोटो बनाने की कोशिश की, लेकिन सबसे अच्छे परिणाम ChatGPT के साथ मिले। हालांकि छवि जनरेट करने में थोड़ा अधिक समय लगता है, परिणाम काफी बेहतर थे।</p>
+                    
+                    <ul>
+                        <li>सबसे पहले, ChatGPT ऐप या वेबसाइट पर जाएं।</li>
+                        <li>वहां अपने Gmail ID से लॉग इन करें।</li>
+                        <li>बाएं कोने में प्लस विकल्प पर क्लिक करें, फिर फोटो विकल्प पर क्लिक करें।</li>
+                        <li>अपनी गैलरी से वह फोटो जोड़ें जिसमें आप फोटो लगा रहे हैं।</li>
+                        <li>अब, हमारे द्वारा दिए गए प्रॉम्प्ट को मैसेज बॉक्स में दर्ज करें।</li>
+                        <li>कृपया एक पल प्रतीक्षा करें, आपकी फोटो में भूत दिखाई देगा।</li>
+                        <li>कुछ दिन प्रतीक्षा करने के बाद, आपकी फोटो तैयार हो जाएगी।</li>
+                        <li>अब अपनी फोटो पर क्लिक करें और उसे सेव करें।</li>
+                    </ul>
+                    
+                    <div class="note">
+                        <strong>नोट:</strong> यह लेख सिर्फ जानकारी के लिए है। AI टूल्स का उपयोग करते समय हमेशा उनकी सेवा शर्तों और गोपनीयता नीति की जांच करें।
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Featured Posts -->
+            <div class="featured-posts">
+                <h2 style="text-align: center; color: var(--primary); margin-bottom: 30px; font-size: 2rem;">More Articles</h2>
+                
+                <div class="posts-grid">
+                    <div class="post-card">
+                        <div class="post-card-img">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="post-card-content">
+                            <h3>Best APK Sources 2024</h3>
+                            <p>Discover the safest and most reliable sources for downloading APK files for Android applications.</p>
+                            <div class="post-card-meta">
+                                <span><i class="far fa-calendar"></i> Jan 10, 2024</span>
+                                <span><i class="far fa-eye"></i> 1.2K views</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="post-card">
+                        <div class="post-card-img">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="post-card-content">
+                            <h3>AI Tools for Content Creation</h3>
+                            <p>Explore the latest AI-powered tools that are revolutionizing content creation and editing workflows.</p>
+                            <div class="post-card-meta">
+                                <span><i class="far fa-calendar"></i> Jan 5, 2024</span>
+                                <span><i class="far fa-eye"></i> 2.5K views</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="post-card">
+                        <div class="post-card-img">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="post-card-content">
+                            <h3>Web Development Trends 2024</h3>
+                            <p>Stay updated with the latest trends and technologies in web development for the coming year.</p>
+                            <div class="post-card-meta">
+                                <span><i class="far fa-calendar"></i> Dec 28, 2023</span>
+                                <span><i class="far fa-eye"></i> 3.1K views</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Sumit Creator</h3>
+                    <p>Providing innovative tools and resources for developers, creators, and tech enthusiasts worldwide.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/share/1AYTT3xhUh/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/block_user631"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/saeditz.in?igsh=a3luaWppdzlpMWFo"><i class="fab fa-instagram"></i></a>
+                        <a href="https://youtube.com/@sumitray631?si=DIAG6qNRsIStJmoR"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="sapk.html" target="_blank">SApk</a></li>
+                        <li><a href="Blog.html" target="_blank">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="edition.html" target="_blank">Editing Tools</a></li>
+                        <li><a href="ai-edit.html" target="_blank">AI Editing</a></li>
+                        <li><a href="sapk.html" target="_blank">APK Collection</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">sumitcreator143@gmail.com</a></li>
+                        <li><a href="#">+91 62070 79956</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 Sumit Creator. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mainNav.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
